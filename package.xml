@@ -20,7 +20,7 @@
     <readme><![CDATA[Collection of UI examples for the Umbraco Backoffice. They are all installed into a new section and are self-documented.]]></readme>
   </info>
   <files>
-    <folder path="src/Our.Umbraco.UiExamples/App_Plugins" orgPath="app_plugins/uiexamples" />
+    <folder path="src/Our.Umbraco.UiExamples/App_Plugins/uiexamples" orgPath="app_plugins/uiexamples" />
     <file path="src/Our.Umbraco.UiExamples/bin/Release/net472/Our.Umbraco.UiExamples.dll" orgPath="bin/Our.Umbraco.UiExamples.dll" />
   </files>
   <Actions />
