@@ -42,10 +42,10 @@ jobs:
         uses: microsoft/setup-msbuild@v1
 
       - name: Restore Packages
-        run: dotnet restore 
+        run: dotnet restore ./src
 
       - name: Build Project
-        run: msbuild -p:Configuration=Release
+        run: msbuild ./src/Our.Umbraco.UiExamples -p:Configuration=Release
 
       # path to your package.xml file should go here.
       - name: Create Umbraco package file
