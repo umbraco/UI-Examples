@@ -53,7 +53,7 @@ jobs:
 
 #      # For the push step to work you will need to create an api key on Our, and save it as a secret on Github with the name "UMBRACO_DEPLOY_KEY"
       - name: Push package to Our
-        run: umbpack push ${{ env.OUTPUT }}/UiExamples_${{ steps.get_version.outputs.VERSION }}.zip -k ${{ secrets.UMBRACO_DEPLOY_KEY }}
+        run: umbpack push ${{ env.OUTPUT }}/UI_Examples_${{ steps.get_version.outputs.VERSION }}.zip -k ${{ secrets.UMBRACO_DEPLOY_KEY }}
 
       - name: upload-artifacts
         uses: actions/upload-artifact@v2
