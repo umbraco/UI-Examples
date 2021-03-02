@@ -1,0 +1,47 @@
+﻿<div ng-controller="exampleDialogController as vm">
+
+    <umb-box>
+        <umb-box-header title-key="exdialog_overlayTitle"
+                        description-key="exdialog_overlayDescription">
+        </umb-box-header>
+        <umb-box-content>
+
+            <localize key="exdialog_overlayConfirmIntro"></localize>
+
+            <umb-button action="vm.openConfirmOverlay('Are your really sure?')"
+                        label="Confirm"
+                        type="button"
+                        button-style="action"></umb-button>
+
+            <umb-button action="vm.openConfirmOverlay('Are your really sure?', 'remove')"
+                        label="Confirm remove"
+                        type="button"
+                        button-style="success"></umb-button>
+
+            <umb-button action="vm.openConfirmOverlay('Are your really sure?', 'delete')"
+                        label="Confirm delete"
+                        type="button"
+                        button-style="danger"></umb-button>
+        </umb-box-content>
+    </umb-box>
+    <umb-box>
+
+        <umb-box-header title-key="exdialog_overlayCustom"
+                        description-key="exdialog_overlayCustomDescription">
+        </umb-box-header>
+        <umb-box-content>
+
+            <localize key="exdialog_overlayCustomIntro"></localize>
+
+            <umb-button action="vm.openCustomOverlay()"
+                        label="Custom Overlay"
+                        type="button"
+                        button-style="action"></umb-button>
+
+
+
+        </umb-box-content>
+    </umb-box>
+
+
+</div>
