@@ -30,10 +30,10 @@
                     'view': Umbraco.Sys.ServerVariables.umbracoSettings.appPluginsPath + '/uiexamples/layout/layout.html'
                 },
                 {
-                    'name': 'Tabs',
-                    'alias': 'tabs',
-                    'icon': 'icon-tab',
-                    'view': Umbraco.Sys.ServerVariables.umbracoSettings.appPluginsPath + '/uiexamples/tabs/tabs.html',
+                    'name': 'Dialogs',
+                    'alias': 'dialogs',
+                    'icon': 'icon-browser-window',
+                    'view': Umbraco.Sys.ServerVariables.umbracoSettings.appPluginsPath + '/uiexamples/dialogs/dialogs.html',
                 },
                 {
                     'name': 'Icons',
@@ -47,6 +47,12 @@
                     'icon': 'icon-checkbox-empty',
                     'view': Umbraco.Sys.ServerVariables.umbracoSettings.appPluginsPath + '/uiexamples/buttons/buttons.html',
                 },
+                {
+                    'name': 'Tabs',
+                    'alias': 'tabs',
+                    'icon': 'icon-tab',
+                    'view': Umbraco.Sys.ServerVariables.umbracoSettings.appPluginsPath + '/uiexamples/tabs/tabs.html',
+                }
             ]
         }
 
