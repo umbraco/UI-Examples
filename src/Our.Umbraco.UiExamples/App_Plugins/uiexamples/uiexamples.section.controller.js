@@ -52,6 +52,12 @@
                     'alias': 'tabs',
                     'icon': 'icon-tab',
                     'view': Umbraco.Sys.ServerVariables.umbracoSettings.appPluginsPath + '/uiexamples/tabs/tabs.html',
+                },
+                {
+                    'name': 'Editor Panels',
+                    'alias': 'editorPanels',
+                    'icon': 'icon-screensharing',
+                    'view': Umbraco.Sys.ServerVariables.umbracoSettings.appPluginsPath + '/uiexamples/editorPanels/panels.html',
                 }
             ]
         }
