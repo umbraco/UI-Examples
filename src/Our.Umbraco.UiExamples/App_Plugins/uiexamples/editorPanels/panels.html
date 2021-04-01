@@ -1,0 +1,65 @@
+﻿<div class="editor-panels-container" ng-controller="panelsController as vm">
+    <umb-box>
+        <umb-box-header title-key="panels_editorFooterTitle" class="header">
+            <umb-button action="vm.linkAway('https://our.umbraco.com/apidocs/v8/ui/#/api/umbraco.directives.directive:umbEditorFooter');"
+                        label="umb-editor-footer"
+                        type="button"
+                        icon="icon-book"
+                        button-style="info">
+            </umb-button>
+        </umb-box-header>
+        <umb-box-content>
+            <umb-editor-footer class="red-outline-dotted">
+                <umb-editor-footer-content-left class="blue-outline-dotted">
+                    Left
+                </umb-editor-footer-content-left>
+                <umb-editor-footer-content-right class="green-outline-dotted">
+                    Right
+                </umb-editor-footer-content-right>
+            </umb-editor-footer>
+
+            <umb-code-snippet language="'html'" title="HTML">
+&lt;umb-editor-footer&gt;
+     &lt;umb-editor-footer-content-left&gt;
+        Left
+     &lt;/umb-editor-footer-content-left&gt;
+     &lt;umb-editor-footer-content-right&gt;
+         Right
+     &lt;/umb-editor-footer-content-right&gt;
+&lt;/umb-editor-footer&gt;
+            </umb-code-snippet>
+            <localize key="panels_editorFooterDescription"></localize>
+        </umb-box-content>
+    </umb-box>
+
+    <umb-box>
+        <umb-box-header title-key="panels_editorHeaderTitle" class="header">
+            <umb-button action="vm.linkAway('https://our.umbraco.com/apidocs/v8/ui/#/api/umbraco.directives.directive:umbEditorHeader');"
+                        label="umb-editor-header"
+                        type="button"
+                        icon="icon-book"
+                        button-style="info">
+            </umb-button>
+        </umb-box-header>
+        <umb-box-content>
+            <umb-editor-header name="'TestName'" name-locked="true"
+                               icon="'icon-screenshare'" alias="'testName'" alias-locked="true"
+                               description="'Description'"
+                               description-locked="true"
+                               hide-alias="true"
+                               show-back-button="true" class="red-outline-dotted">
+            </umb-editor-header>
+
+            <umb-code-snippet language="'html'" title="HTML">
+&lt;umb-editor-header name="'TestName'" name-locked="true"
+    icon="'icon-screenshare'" alias="'testName'" alias-locked="true"
+    description="'Description'"
+    description-locked="true"
+    hide-alias="true"
+    show-back-button="true"&gt;
+&lt;/umb-editor-header&gt;
+            </umb-code-snippet>
+            <localize key="panels_editorHeaderDescription"></localize>
+        </umb-box-content>
+    </umb-box>
+</div>

@@ -1,0 +1,18 @@
+﻿.editor-panels-container{}
+
+.editor-panels-container .red-outline-dotted{
+    border: 1px dotted red;
+}
+
+.editor-panels-container .blue-outline-dotted {
+    border: 1px dotted blue;
+}
+
+.editor-panels-container .green-outline-dotted {
+    border: 1px dotted green;
+}
+
+.editor-panels-container .umb-editor-footer,
+.editor-panels-container .umb-editor-header {
+    position: relative;
+}
