@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Our.Umbraco.UiExamples", "O
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UIExamples.Website", "UIExamples.Website\UIExamples.Website.csproj", "{7C6C2FFA-25A4-4CC4-9AA1-49B2DFB68DFC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UIExamples.v9.Website", "UIExamples.v9.Website\UIExamples.v9.Website.csproj", "{278F12BA-8B25-46AE-8BB0-A0B9AB50EEA4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{7C6C2FFA-25A4-4CC4-9AA1-49B2DFB68DFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7C6C2FFA-25A4-4CC4-9AA1-49B2DFB68DFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7C6C2FFA-25A4-4CC4-9AA1-49B2DFB68DFC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{278F12BA-8B25-46AE-8BB0-A0B9AB50EEA4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{278F12BA-8B25-46AE-8BB0-A0B9AB50EEA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{278F12BA-8B25-46AE-8BB0-A0B9AB50EEA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{278F12BA-8B25-46AE-8BB0-A0B9AB50EEA4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

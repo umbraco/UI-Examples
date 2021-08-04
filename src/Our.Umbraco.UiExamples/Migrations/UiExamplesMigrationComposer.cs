@@ -1,40 +1,35 @@
-﻿using Umbraco.Core;
+﻿#if NETCOREAPP
+using Umbraco.Cms.Core.Composing;
+using Umbraco.Cms.Core.DependencyInjection;
+using Umbraco.Cms.Core.Events;
+using Umbraco.Cms.Core.Notifications;
+#else
+using Umbraco.Core;
 using Umbraco.Core.Composing;
-using Umbraco.Core.Logging;
-using Umbraco.Core.Migrations;
-using Umbraco.Core.Migrations.Upgrade;
-using Umbraco.Core.Scoping;
-using Umbraco.Core.Services;
+#endif
+
 
 namespace Our.Umbraco.UiExamples.Migrations
 {
+
+#if NETCOREAPP
+
+    public class UiExamplesMigrationComposer : IComposer
+    {
+        public void Compose(IUmbracoBuilder builder)
+        {
+            builder.AddNotificationHandler<UmbracoApplicationStartingNotification, UmbracoAppStartingHandler>();
+        }
+    }
+
+
+#else
     [RuntimeLevel(MinLevel = RuntimeLevel.Run)]
     public class UiExamplesMigrationComposer : ComponentComposer<UiExamplesMigrationComponent>, IUserComposer
     { }
-
-    public class UiExamplesMigrationComponent : IComponent
-    {
-        private readonly IScopeProvider _scopeProvider;
-        private readonly IMigrationBuilder _migrationBuilder;
-        private readonly IKeyValueService _keyValueService;
-        private readonly IProfilingLogger _profilingLogger;
-
-        public UiExamplesMigrationComponent(IScopeProvider scopeProvider, IMigrationBuilder migrationBuilder, IKeyValueService keyValueService, IProfilingLogger profilingLogger)
-        {
-            _scopeProvider = scopeProvider;
-            _migrationBuilder = migrationBuilder;
-            _keyValueService = keyValueService;
-            _profilingLogger = profilingLogger;
-        }
+#endif
 
 
-        public void Initialize()
-        {
-            var upgrader = new Upgrader(new UiExamplesMigrationPlan());
-            upgrader.Execute(_scopeProvider, _migrationBuilder, _keyValueService, _profilingLogger);
-        }
 
-        public void Terminate()
-        { }
-    }
+
 }
