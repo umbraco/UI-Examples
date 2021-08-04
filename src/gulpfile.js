@@ -1,61 +1,44 @@
 /// <binding ProjectOpened='default' />
-//
 const { watch, src, dest } = require('gulp');
-var config = require('./paths.json');
 
-/*
- * app_plugin and build script.
- */
+const sources = [
+    'Our.Umbraco.UIExamples/App_Plugins'
+];
 
-const appPluginPath = '/App_Plugins/' + config.pluginFolder;
+const destinations = [
+    'UIExamples.Website/App_Plugins',
+    'UIExamples.v9.WebSite/App_Plugins'
+];
 
-const appPlugin = {
-    source : config.library + appPluginPath + '/**/*',
-    src : config.library + appPluginPath + '/',
-    dest : config.site + appPluginPath
+function copy(path, base) {
+
+    destinations.forEach(function (target) {
+        console.log(time(), path.substring(base.length + 1), '>', target.substring(0, target.indexOf('/')));
+
+        src(path, { base: base })
+            .pipe(dest(target));
+    });
 }
 
-
-/*
- * Copys files from app_plugins folder in a library
- * project into a test site.
- * 
- * Your paths.config should look like: 
- * 
- * {
- *    "library": "myPackage.LibraryName",
- *    "pluginFolder": "MyPackageFolder",
- *    "site" : "../Sandbox.Site"
- * }
- * 
- * This will run in the background, so you don't need
- * to rebuild your project when working on script files.
- */
-
-function copy(path, baseFolder, target) {
-
-    console.log('copy: \x1b[36m%s\x1b[0m %s', path, target);  
-
-    return src(path, { base: baseFolder })
-        .pipe(dest(target));
-}
-
-
-function watchAppPlugins() {
-
-    console.log()
-    console.log('Watching : ' + appPlugin.source);
-    console.log('Target   : ' + appPlugin.dest);
-
-    watch(appPlugin.source, { ignoreInitial: false })
-        .on('change', function (path, stats) {
-            copy(path, appPlugin.src, appPlugin.dest)
-        })
-        .on('add', function (path, stats) {
-            copy(path, appPlugin.src, appPlugin.dest)
-        });
+function time() {
+    return '[' + new Date().toISOString().slice(11, -5) + ']';
 }
 
 exports.default = function () {
-    watchAppPlugins();
+
+    sources.forEach(function (source) {
+
+        var searchPath = source + '/**/*';
+
+        watch(searchPath, { ignoreInitial: false })
+            .on('change', function (path, stats) {
+                copy(path, source);
+            })
+            .on('add', function (path, stats) {
+                copy(path, source);
+            });
+    });
 };
+    
+    
+

@@ -1,0 +1,6 @@
+{
+	"css": [ "~/app_plugins/uiexamples/editorPanels/panels.css" ],
+	"javascript": [
+		"~/app_plugins/uiexamples/editorPanels/panels.controller.js"
+	]
+}
