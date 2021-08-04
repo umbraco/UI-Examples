@@ -1,11 +1,66 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net472</TargetFramework>
+    <TargetFrameworks>net472;net50</TargetFrameworks>
   </PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="UmbracoCms.Web" Version="8.10.1" />
-  </ItemGroup>
+	<!-- nuget package stuff -->
+	<PropertyGroup>
+		<PackageId>Our.Umbraco.UIExamples</PackageId>
+		<Version>2.0-beta001</Version>
+
+		<PackageIconUrl></PackageIconUrl>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<PackageProjectUrl>https://our.umbraco.com/packages/developer-tools/ui-examples/</PackageProjectUrl>
+		<PackageTags>Umbraco</PackageTags>
+
+		<RepositoryUrl>https://github.com/umbraco/UI-Examples</RepositoryUrl>
+
+		<Description>A collection of backoffice elements designed to help Umbraco developers extend the backoffice.</Description>
+		<PackageReleaseNotes>
+			1.0 - Initial version
+			2.0 - Multi-targeted v8/v9 version
+		</PackageReleaseNotes>
+
+		<EmbedUntrackedSources>true</EmbedUntrackedSources>
+		<IncludeSymbols>true</IncludeSymbols>
+		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
+
+		<ContentTargetFolders>content</ContentTargetFolders>
+
+		<PackageOutputPath>../../output</PackageOutputPath>
+
+	</PropertyGroup>
+
+	<!-- package files -->
+	<ItemGroup>
+		<Content Include="App_Plugins\**\*.*">
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+			<CopyToPublishDirectory>Always</CopyToPublishDirectory>
+		</Content>
+
+		<!-- target file to copy app_plugins in .netcore -->
+		<None Include="build\**\*.*">
+			<Pack>True</Pack>
+			<PackagePath>buildTransitive</PackagePath>
+		</None>
+
+	</ItemGroup>
+
+
+	<ItemGroup Condition="'$(TargetFramework)' == 'net472'">
+		<PackageReference Include="UmbracoCms.Web" Version="8.10.1" />
+	</ItemGroup>
+
+	<ItemGroup Condition="'$(TargetFramework)' == 'net50'">
+		<PackageReference Include="Umbraco.Cms.Web.Website" Version="9.0.0-rc001" />
+		<PackageReference Include="Umbraco.Cms.Web.BackOffice" Version="9.0.0-rc001" />
+	</ItemGroup>
+
+	<Target Name="RemoveLuceneAnalyzer" BeforeTargets="CoreCompile">
+		<ItemGroup>
+			<Analyzer Remove="@(Analyzer)" Condition="%(FileName) == 'Lucene.Net.CodeAnalysis.CSharp'" />
+		</ItemGroup>
+	</Target>
 
 </Project>

@@ -1,17 +1,57 @@
-﻿using Umbraco.Core.Logging;
+﻿
+#if NETCOREAPP
+using Umbraco.Cms.Core.Scoping;
+using Umbraco.Cms.Core.Services;
+using Umbraco.Cms.Core;
+using Umbraco.Cms.Infrastructure.Migrations;
+using Umbraco.Cms.Core.Logging;
+using Umbraco.Cms.Core.Web;
+#else 
+using Umbraco.Core;
 using Umbraco.Core.Migrations;
+using Umbraco.Core.Scoping;
+using Umbraco.Core.Services;
+using Umbraco.Web;
+#endif
+
 
 namespace Our.Umbraco.UiExamples.Migrations
 {
     public class AddSectionToAdminsMigration : MigrationBase
     {
-        public AddSectionToAdminsMigration( IMigrationContext context) : base(context) { }
+        private readonly IUmbracoContextFactory _context;
+        private readonly IScopeProvider _scopeProvider;
+        private readonly IUserService _userService;
 
-        public override void Migrate()
+        public AddSectionToAdminsMigration(IMigrationContext context,
+            IUmbracoContextFactory umbracoContextFactory,
+            IScopeProvider scopeProvider,
+            IUserService userService) : base(context) 
         {
-            Context.Logger.Info<AddSectionToAdminsMigration>("Starting migration to add UI Examples section to the admin usergroup");
-            Context.AddPostMigration<AddSectionForAdmins>();
-            Context.Logger.Info<AddSectionToAdminsMigration>("Migration completed");
+            _userService = userService;
+            _context = umbracoContextFactory;
+            _scopeProvider = scopeProvider;
+        }
+
+#if NETCOREAPP
+        protected override void Migrate()
+#else
+        public override void Migrate()
+#endif       
+        {
+            using (UmbracoContextReference umbracoContextReference = _context.EnsureUmbracoContext())
+            {
+                using (var scope = _scopeProvider.CreateScope())
+                {
+                    var adminGroup = _userService.GetUserGroupByAlias(Constants.Security.AdminGroupAlias);
+                    adminGroup.AddAllowedSection("uiExamples");
+
+                    _userService.Save(adminGroup);
+
+                    scope.Complete();
+                }
+            }
+
         }
     }
 }
