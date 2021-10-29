@@ -33,11 +33,20 @@
 
         <umb-box-header title-key="uiexamplesIcons_listTitle"
                         description-key="uiexamplesIcons_listDescription">
+            <umb-search-filter input-id="uiexamples-icon-search"
+                               model="vm.searchTerm"
+                               label-key="placeholders_filter"
+                               text="Type to filter..."
+                               css-class="w-100"
+                               auto-focus="true">
+            </umb-search-filter>
         </umb-box-header>
 
         <umb-box-content>
             <div class="flex justify-between flex-wrap">
-                <div ng-repeat="icon in vm.icons | orderBy: 'name'" class="umb-iconpicker-item cursor-pointer" style="justify-content: left;"
+                <div ng-repeat="icon in vm.icons | orderBy: 'name' | filter:vm.searchTerm"
+                     class="umb-iconpicker-item cursor-pointer"
+                     style="justify-content: left;"
                      ng-click="vm.openIconOverlay(icon)">
                     <umb-icon class="umb-iconpicker-svg {{icon.name}} large" icon="{{icon.name}}"></umb-icon>
                     <div class="ml2">{{icon.name}}</div>
