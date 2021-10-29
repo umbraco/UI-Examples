@@ -1,4 +1,9 @@
-﻿using Umbraco.Core.Migrations;
+﻿
+#if NETCOREAPP
+using Umbraco.Cms.Infrastructure.Migrations;
+#else
+using Umbraco.Core.Migrations;
+#endif
 
 namespace Our.Umbraco.UiExamples.Migrations
 {
