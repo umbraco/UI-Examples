@@ -4,15 +4,18 @@
     function exampleSectionIconsController(exampleResource, iconHelper, overlayService) {
 
         var vm = this;
+
         vm.loading = true;
         vm.linkAway = exampleResource.linkAway;
+        vm.codeSnippet = `<umb-icon
+    icon="icon-{name}"
+    class="small | medium | large">
+</umb-icon>`;
 
         vm.openIconOverlay = openIconOverlay;
 
         function init() {
-
             if (iconHelper.getAllIcons !== undefined) {
-
                 iconHelper.getAllIcons().then(function (icons) {
                     vm.icons = icons;
                     vm.loading = false;
@@ -33,7 +36,6 @@
         /////////
 
         function openIconOverlay(icon) {
-
             var options = {
                 view: Umbraco.Sys.ServerVariables.umbracoSettings.appPluginsPath + '/uiexamples/icons/iconOverlay.html',
                 title: icon.name,
@@ -44,6 +46,7 @@
                     overlayService.close();
                 }
             }
+
             overlayService.open(options);
         }
 

@@ -10,27 +10,22 @@
                         button-style="info">
             </umb-button>
         </umb-box-header>
-
         <umb-box-content>
-            <umb-code-snippet language="'html'">&lt;umb-icon
-    icon="icon-{name}"&gt;
-    class="small | medium | large"&gt;
-&lt;/umb-icon&gt;</umb-code-snippet>
+            <umb-code-snippet language="'html'">{{vm.codeSnippet}}</umb-code-snippet>
             <p><localize key="uiexamplesIcons_parameterIcon"></localize></p>
             <p><localize key="uiexamplesIcons_parameterClass"></localize></p>
             <ul>
-                <li><code>small </code> &nbsp; 14px <umb-icon icon="icon-alert" class="small"></umb-icon></li>
+                <li><code>small</code> &nbsp; 14px <umb-icon icon="icon-alert" class="small"></umb-icon></li>
                 <li><code>medium</code> &nbsp; 24px <umb-icon icon="icon-alert" class="medium"></umb-icon></li>
                 <li><code>large </code> &nbsp; 32px <umb-icon icon="icon-alert" class="large"></umb-icon></li>
             </ul>
-            <p><localize key="uiexamplesIcons_parameterClassNone"></localize></p></p>
+            <p><localize key="uiexamplesIcons_parameterClassNone"></localize></p>
         </umb-box-content>
     </umb-box>
 
     <umb-load-indicator ng-if="vm.loading"></umb-load-indicator>
 
-    <umb-box>
-
+    <umb-box ng-if="!vm.loading">
         <umb-box-header title-key="uiexamplesIcons_listTitle"
                         description-key="uiexamplesIcons_listDescription">
             <umb-search-filter input-id="uiexamples-icon-search"
@@ -41,7 +36,6 @@
                                auto-focus="true">
             </umb-search-filter>
         </umb-box-header>
-
         <umb-box-content>
             <div class="flex justify-between flex-wrap">
                 <div ng-repeat="icon in vm.icons | orderBy: 'name' | filter:vm.searchTerm"
