@@ -4,15 +4,15 @@
     <key alias="editorFooterTitle">The umb-editor-footer element</key>
     <key alias="editorFooterDescription">
       <![CDATA[
-			<p>The <span style="color:red";>umb-editor-footer</span> element (outlined in red) is used as a container to display a footer on the current editor screen in Umbraco. It contains a <span style="color:blue";>left</span> (outlined in blue) and <span style="color:green";>right</span> element (outlined in green). For example, these are used in Umbraco to display a breadcrumb and the save/publish buttons while editing content.
-			]]>
+        <p>The <span style="color:red";>umb-editor-footer</span> element (outlined in red) is used as a container to display a footer on the current editor screen in Umbraco. It contains a <span style="color:blue";>left</span> (outlined in blue) and <span style="color:green";>right</span> element (outlined in green). For example, these are used in Umbraco to display a breadcrumb and the save/publish buttons while editing content.
+      ]]>
     </key>
     <key alias="editorHeaderTitle">The umb-editor-header element</key>
     <key alias="editorHeaderDescription">
       <![CDATA[
-			<p>The umbEditorHeader directive is used to display the header if things like DocumentTypes, MemberTypes and so on are edited. It has input boxes for icon, name, description and alias.</pre>
-			<h4>Directive attributes:</h2>
-			<ul>
+      <p>The umbEditorHeader directive is used to display the header if things like DocumentTypes, MemberTypes and so on are edited. It has input boxes for icon, name, description and alias.</pre>
+      <h4>Directive attributes:</h2>
+      <ul>
         <li>name</li>
         <li>nameLocked</li>
         <li>nameRequired</li>
@@ -34,7 +34,7 @@
         <li>editorfor</li>
         <li>setpagetitle</li>
       </ul>
-			]]>
+      ]]>
     </key>
   </area>
 </language>

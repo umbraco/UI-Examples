@@ -18,7 +18,7 @@
                     'active': true
                 },
                 {
-                    'name': 'Umbbox',
+                    'name': 'UmbBox',
                     'alias': 'umbbox',
                     'icon': 'icon-box',
                     'view': Umbraco.Sys.ServerVariables.umbracoSettings.appPluginsPath + '/uiexamples/umbbox/umbbox.html'
