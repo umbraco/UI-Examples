@@ -58,6 +58,12 @@
                     'alias': 'editorPanels',
                     'icon': 'icon-screensharing',
                     'view': Umbraco.Sys.ServerVariables.umbracoSettings.appPluginsPath + '/uiexamples/editorPanels/panels.html',
+                },
+                {
+                    'name': 'Alerts',
+                    'alias': 'alerts',
+                    'icon': 'icon-alert',
+                    'view': Umbraco.Sys.ServerVariables.umbracoSettings.appPluginsPath + '/uiexamples/alerts/alerts.html',
                 }
             ]
         }
