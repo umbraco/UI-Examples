@@ -1,0 +1,75 @@
+﻿<div class="editor-panels-container" ng-controller="alertsController as vm">
+
+    <umb-box>
+        <umb-box-header title-key="alerts_alertsTitle"></umb-box-header>
+        <umb-box-content>
+            <p>The alerts and notifications can provide contextual feedback messages for typical user actions.</p>
+            <p>The difference between alerts and notifications is that, an <strong>alert</strong> is a set of visual styles to display a feedback message, whereas a <strong>notification</strong> is a temporary feedback message that is displayed at the bottom of the screen.</p>
+        </umb-box-content>
+    </umb-box>
+
+    <umb-box>
+        <umb-box-header title="Notifications">
+            <umb-button action="vm.linkAway('https://our.umbraco.com/apidocs/v8/ui/#/api/umbraco.directives.directive:umbNotifications');"
+                        label="umb-notifications"
+                        type="button"
+                        icon="icon-book"
+                        button-style="info">
+            </umb-button>
+        </umb-box-header>
+        <umb-box-content>
+
+            <p>A notification is a contextual feedback message that appears at the bottom of the screen.</p>
+
+            <h5>Initialization</h5>
+            <p>The initialization of the <code>umb-notifications</code> directive is done at page level, typically you will not need to this, as it is already added to the main CMS backoffice pages.</p>
+            <p>But if you do need to add the directive, this is the code snippet:</p>
+            <umb-code-snippet language="'html'">&lt;umb-notifications&gt;&lt;/umb-notifications&gt;</umb-code-snippet>
+
+            <h5>Examples</h5>
+            <p>The styling and types of the notifications are the same as the alerts (below). Use the buttons below to trigger the different types.</p>
+
+            <div class="mb3">
+                <umb-button ng-repeat="item in vm.alerts"
+                            ng-if="item.type != ''"
+                            action="vm.showNotification(item)"
+                            label="{{item.headline}}"
+                            type="button"
+                            button-style="{{item.style}}">
+                </umb-button>
+            </div>
+
+            <p>The default timeout for a notification message before it disappears is 10 seconds.</p>
+
+            <h5>Code</h5>
+            <p>To use notifications in your own code, you will need to inject the <a href="https://our.umbraco.com/apidocs/v8/ui/#/api/umbraco.services.notificationsService" target="_blank"><code>notificationsService</code></a> into your AngularJS code.</p>
+            <umb-code-snippet language="'javascript'">{{vm.snippetNotification}}</umb-code-snippet>
+
+        </umb-box-content>
+    </umb-box>
+
+    <umb-box>
+        <umb-box-header title="Alerts"></umb-box-header>
+        <umb-box-content>
+
+            <p>An alert is a set of visual styles (e.g. CSS classes), that can be used to display feedback messages.</p>
+
+            <div class="flex" ng-repeat="item in vm.alerts">
+
+                <div class="mt3 umb-editor--small">
+                    <div ng-class="item.class" role="alert">
+                        <h4 ng-bind="item.headline"></h4>
+                        <span ng-bind="item.message"></span>
+                    </div>
+                </div>
+
+                <div class="ml3 umb-editor--medium">
+                    <umb-code-snippet language="'html'">{{vm.snippetAlert(item)}}</umb-code-snippet>
+                </div>
+
+            </div>
+
+        </umb-box-content>
+    </umb-box>
+
+</div>
