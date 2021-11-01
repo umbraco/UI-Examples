@@ -6,7 +6,7 @@ const sources = [
 ];
 
 const destinations = [
-    'UIExamples.Website/App_Plugins',
+    'UIExamples.v8.Website/App_Plugins',
     'UIExamples.v9.WebSite/App_Plugins'
 ];
 
