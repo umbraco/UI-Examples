@@ -12,3 +12,5 @@
 **/Media/**
 !**/Media/Web.Config
 
+# ignore the copied App_Plugins folder
+*Website/App_Plugins/uiexamples/*
