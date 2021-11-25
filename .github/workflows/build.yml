@@ -1,5 +1,7 @@
 name: Build
 
+on: [push, pull_request]
+
 env:
   PROJECT: ./src/Our.Umbraco.UiExamples/Our.Umbraco.UiExamples.csproj
   OUTPUT: ./dist
