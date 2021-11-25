@@ -15,9 +15,9 @@
 		<RuntimeHostConfigurationOption Include="System.Globalization.AppLocalIcu" Value="68.2" />
 	</ItemGroup>
 
-	<Import Project="..\Our.Umbraco.UiExamples\build\Our.Umbraco.UiExamples.targets" />
+	<Import Project="..\..\src\Our.Umbraco.UiExamples\build\Our.Umbraco.UiExamples.targets" />
 	<ItemGroup>
-		<ProjectReference Include="..\Our.Umbraco.UiExamples\Our.Umbraco.UiExamples.csproj" />
+		<ProjectReference Include="..\..\src\Our.Umbraco.UiExamples\Our.Umbraco.UiExamples.csproj" />
 	</ItemGroup>
 
 	<PropertyGroup>

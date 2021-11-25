@@ -3,7 +3,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
-namespace UIExamples.v9.Website
+namespace Umbraco9.Website
 {
     public class Program
     {

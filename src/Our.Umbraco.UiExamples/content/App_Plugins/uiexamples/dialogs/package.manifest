@@ -1,6 +1,6 @@
 {
   "javascript": [
-    "~/app_plugins/uiexamples/dialogs/dialogs.controller.js",
-    "~/app_plugins/uiexamples/dialogs/overlays/customoverlay.controller.js"      
+    "~/App_Plugins/uiexamples/dialogs/dialogs.controller.js",
+    "~/App_Plugins/uiexamples/dialogs/overlays/customoverlay.controller.js"
   ]
 }

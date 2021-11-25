@@ -1,3 +1,5 @@
 {
-  "javascript": [ "~/app_plugins/uiexamples/buttons/buttons.controller.js" ]
+  "javascript": [
+    "~/App_Plugins/uiexamples/buttons/buttons.controller.js"
+  ]
 }
