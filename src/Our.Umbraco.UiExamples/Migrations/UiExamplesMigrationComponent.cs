@@ -1,7 +1,4 @@
-﻿//
-// FRAMEWORK ONLY CODE 
-//
-#if NETFRAMEWORK
+﻿#if NETFRAMEWORK
 using Umbraco.Core.Composing;
 using Umbraco.Core.Logging;
 using Umbraco.Core.Migrations;

@@ -1,5 +1,4 @@
-﻿
-#if NETCOREAPP
+﻿#if NETCOREAPP
 using Umbraco.Cms.Core.Scoping;
 using Umbraco.Cms.Core.Services;
 using Umbraco.Cms.Core;
@@ -14,7 +13,6 @@ using Umbraco.Core.Services;
 using Umbraco.Web;
 #endif
 
-
 namespace Our.Umbraco.UiExamples.Migrations
 {
     public class AddSectionToAdminsMigration : MigrationBase
@@ -23,10 +21,8 @@ namespace Our.Umbraco.UiExamples.Migrations
         private readonly IScopeProvider _scopeProvider;
         private readonly IUserService _userService;
 
-        public AddSectionToAdminsMigration(IMigrationContext context,
-            IUmbracoContextFactory umbracoContextFactory,
-            IScopeProvider scopeProvider,
-            IUserService userService) : base(context) 
+        public AddSectionToAdminsMigration(IMigrationContext context, IUmbracoContextFactory umbracoContextFactory, IScopeProvider scopeProvider, IUserService userService)
+            : base(context) 
         {
             _userService = userService;
             _context = umbracoContextFactory;
