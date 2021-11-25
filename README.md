@@ -4,12 +4,18 @@ UI Examples is a package that adds a new 'UI Examples' section to your Umbraco i
 https://our.umbraco.com/packages/developer-tools/ui-examples/
 
 Examples include:
-- Buttons
-- Icons
+- UmbBox
 - Layout
+- Dialogs
+- Icons
+- Buttons
+- Tabs
+- Editor Panels
+- Alerts
 
 ## Installing the Package 
 Umbraco v8: the UI Examples package can be added via the Package section of the backoffice *or* using NuGet (e.g. from the Package Manager Console: `Install-Package Our.Umbraco.UiExamples`).
+
 Umbraco v9: install the NuGet package using `dotnet add package Our.Umbraco.UiExamples` *or* manually adding a `PackageReference` to your project file.
 
 ## Contributing
