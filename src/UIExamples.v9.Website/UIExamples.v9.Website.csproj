@@ -1,49 +1,30 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
     <PropertyGroup>
         <TargetFramework>net5.0</TargetFramework>
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Umbraco.Cms" Version="9.0.0-rc001" />
-        <PackageReference Include="Umbraco.Cms.SqlCe" Version="9.0.0-rc001" />
-        <PackageReference Include="Umbraco.SqlServerCE" Version="4.0.0.1" />
+        <PackageReference Include="Umbraco.Cms" Version="9.0.0" />
+		<PackageReference Include="Umbraco.Cms.SqlCe" Version="9.0.0" />
+		<PackageReference Include="Umbraco.SqlServerCE" Version="4.0.0.1" />
     </ItemGroup>
 
-	<Import Project="$(MSBuildThisFileDirectory)..\Our.Umbraco.UiExamples\build\Our.Umbraco.UiExamples.targets" />
+	<!-- Force Windows to use ICU. Otherwise Windows 10 2019H1+ will do it, but older Windows 10 and most if not all Windows Server OS's will run NLS -->
+	<ItemGroup Condition="'$(OS)' == 'Windows_NT'">
+		<PackageReference Include="Microsoft.ICU.ICU4C.Runtime" Version="68.2.0.9" />
+		<RuntimeHostConfigurationOption Include="System.Globalization.AppLocalIcu" Value="68.2" />
+	</ItemGroup>
+
+	<Import Project="..\Our.Umbraco.UiExamples\build\Our.Umbraco.UiExamples.targets" />
 	<ItemGroup>
 		<ProjectReference Include="..\Our.Umbraco.UiExamples\Our.Umbraco.UiExamples.csproj" />
-    </ItemGroup>
+	</ItemGroup>
 
-    <ItemGroup>
-        <Compile Remove="umbraco\Data\**" />
-        <Compile Remove="umbraco\logs\**" />
-        <Compile Remove="umbraco\MediaCache\**" />
-    </ItemGroup>
-    <ItemGroup>
-        <EmbeddedResource Remove="umbraco\Data\**" />
-        <EmbeddedResource Remove="umbraco\logs\**" />
-        <EmbeddedResource Remove="umbraco\MediaCache\**" />
-    </ItemGroup>
-    <ItemGroup>
-        <None Remove="umbraco\Data\**" />
-        <None Remove="umbraco\logs\**" />
-        <None Remove="umbraco\MediaCache\**" />
-        <None Include="config\**\*.*">
-            <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
-            <CopyToPublishDirectory>Always</CopyToPublishDirectory>
-        </None>
-        <None Include="umbraco\**\*.*">
-            <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
-            <CopyToPublishDirectory>Always</CopyToPublishDirectory>
-        </None>
-    </ItemGroup>
-    <ItemGroup>
-        <Content Remove="umbraco\Data\**" />
-        <Content Remove="umbraco\logs\**" />
-        <Content Remove="umbraco\MediaCache\**" />
-    </ItemGroup>
+	<PropertyGroup>
+		<CopyRazorGenerateFilesToPublishDirectory>true</CopyRazorGenerateFilesToPublishDirectory>
+	</PropertyGroup>
 
-    <!-- Set this to true if ModelsBuilder mode is not InMemoryAuto-->
+    <!-- Set this to true if ModelsBuilder mode is not InMemoryAuto -->
     <PropertyGroup>
         <RazorCompileOnBuild>false</RazorCompileOnBuild>
         <RazorCompileOnPublish>false</RazorCompileOnPublish>

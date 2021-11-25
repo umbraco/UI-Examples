@@ -1,11 +1,9 @@
+using System;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-
-using System;
-
 using Umbraco.Cms.Core.DependencyInjection;
 using Umbraco.Extensions;
 
@@ -29,8 +27,6 @@ namespace UIExamples.v9.Website
             _env = webHostEnvironment ?? throw new ArgumentNullException(nameof(webHostEnvironment));
             _config = config ?? throw new ArgumentNullException(nameof(config));
         }
-
-
 
         /// <summary>
         /// Configures the services
@@ -64,8 +60,8 @@ namespace UIExamples.v9.Website
             app.UseUmbraco()
                 .WithMiddleware(u =>
                 {
-                    u.WithBackOffice();
-                    u.WithWebsite();
+                    u.UseBackOffice();
+                    u.UseWebsite();
                 })
                 .WithEndpoints(u =>
                 {
