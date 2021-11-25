@@ -1,0 +1,27 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+	<PropertyGroup>
+		<UiExamplesContentFiles>$(MSBuildThisFileDirectory)..\content\App_Plugins\uiexamples\**\*.*</UiExamplesContentFiles>
+	</PropertyGroup>
+
+	<Target Name="CopyUiExamplesAssets" BeforeTargets="Build">
+		<ItemGroup>
+			<UiExamplesContentFiles Include="$(UiExamplesContentFiles)" />
+		</ItemGroup>
+		<Message Text="Copying UI Examples files: $(UiExamplesContentFiles) - #@(UiExamplesContentFiles->Count()) files" Importance="high" />
+		<Copy
+            SourceFiles="@(UiExamplesContentFiles)"
+            DestinationFiles="@(UiExamplesContentFiles->'$(MSBuildProjectDirectory)\App_Plugins\uiexamples\%(RecursiveDir)%(Filename)%(Extension)')"
+            SkipUnchangedFiles="true" />
+
+	</Target>
+
+	<Target Name="ClearUiExamplesAssets" BeforeTargets="Clean">
+		<ItemGroup>
+			<UiExamplesDir Include="$(MSBuildProjectDirectory)\App_Plugins\uiexamples\" />
+		</ItemGroup>
+		<Message Text="Clear old UI Examples data" Importance="high" />
+		<RemoveDir Directories="@(UiExamplesDir)"  />
+	</Target>
+
+</Project>

@@ -9,8 +9,9 @@
         <PackageReference Include="Umbraco.SqlServerCE" Version="4.0.0.1" />
     </ItemGroup>
 
-    <ItemGroup>
-        <ProjectReference Include="..\Our.Umbraco.UiExamples\Our.Umbraco.UiExamples.csproj" />
+	<Import Project="$(MSBuildThisFileDirectory)..\Our.Umbraco.UiExamples\build\Our.Umbraco.UiExamples.targets" />
+	<ItemGroup>
+		<ProjectReference Include="..\Our.Umbraco.UiExamples\Our.Umbraco.UiExamples.csproj" />
     </ItemGroup>
 
     <ItemGroup>

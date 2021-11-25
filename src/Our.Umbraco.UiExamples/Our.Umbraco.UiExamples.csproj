@@ -4,7 +4,7 @@
     <TargetFrameworks>net472;net50</TargetFrameworks>
   </PropertyGroup>
 
-	<!-- nuget package stuff -->
+	<!-- NuGet package info -->
 	<PropertyGroup>
 		<PackageId>Our.Umbraco.UIExamples</PackageId>
 		<Version>2.0-beta001</Version>
@@ -18,8 +18,10 @@
 
 		<Description>A collection of backoffice elements designed to help Umbraco developers extend the backoffice.</Description>
 		<PackageReleaseNotes>
-			1.0 - Initial version
-			2.0 - Multi-targeted v8/v9 version
+<![CDATA[
+1.0 - Initial version
+2.0 - Multi-targeted v8/v9 version
+]]>
 		</PackageReleaseNotes>
 
 		<EmbedUntrackedSources>true</EmbedUntrackedSources>
@@ -32,29 +34,28 @@
 
 	</PropertyGroup>
 
-	<!-- package files -->
+	<!-- Package files -->
 	<ItemGroup>
-		<Content Include="App_Plugins\**\*.*">
+		<Content Include="content\App_Plugins\**\*.*">
+			<PackagePath>content\App_Plugins</PackagePath>
 			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
 			<CopyToPublishDirectory>Always</CopyToPublishDirectory>
 		</Content>
-
-		<!-- target file to copy app_plugins in .netcore -->
+		<!-- Target file to copy App_Plugins in net50 -->
 		<None Include="build\**\*.*">
 			<Pack>True</Pack>
 			<PackagePath>buildTransitive</PackagePath>
 		</None>
-
 	</ItemGroup>
 
-
 	<ItemGroup Condition="'$(TargetFramework)' == 'net472'">
-		<PackageReference Include="UmbracoCms.Web" Version="8.10.1" />
+		<Reference Include="System.Web" />
+		<PackageReference Include="UmbracoCms.Web" Version="8.10.1" IncludeAssets="compile" />
 	</ItemGroup>
 
 	<ItemGroup Condition="'$(TargetFramework)' == 'net50'">
-		<PackageReference Include="Umbraco.Cms.Web.Website" Version="9.0.0-rc001" />
-		<PackageReference Include="Umbraco.Cms.Web.BackOffice" Version="9.0.0-rc001" />
+		<PackageReference Include="Umbraco.Cms.Web.Website" Version="9.0.0" />
+		<PackageReference Include="Umbraco.Cms.Web.BackOffice" Version="9.0.0" />
 	</ItemGroup>
 
 	<Target Name="RemoveLuceneAnalyzer" BeforeTargets="CoreCompile">
