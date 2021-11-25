@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<umbPackage>
+	<info>
+		<package>
+			<name>Our.Umbraco.UIExamples</name>
+			<licence url="https://opensource.org/licenses/MIT">MIT</licence>
+			<url>https://our.umbraco.com/packages/developer-tools/ui-examples/</url>
+			<requirements type="strict">
+				<major>8</major>
+				<minor>10</minor>
+				<patch>1</patch>
+			</requirements>
+		</package>
+		<author>
+			<name>Umbraco Package Team</name>
+			<website>https://community.umbraco.com/community-teams/the-package-team/</website>
+		</author>
+		<readme><![CDATA[A collection of backoffice elements designed to help Umbraco developers extend the backoffice.]]></readme>
+	</info>
+	<files>
+		<folder path="content/App_Plugins/uiexamples" orgPath="App_Plugins/uiexamples" />
+		<file path="bin/$Configuration$/net472/Our.Umbraco.UiExamples.dll" orgPath="bin/Our.Umbraco.UiExamples.dll" />
+	</files>
+</umbPackage>

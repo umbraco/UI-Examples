@@ -6,7 +6,7 @@
 
 	<!-- NuGet package info -->
 	<PropertyGroup>
-		<PackageId>Our.Umbraco.UIExamples</PackageId>
+		<PackageId>Our.Umbraco.UiExamples</PackageId>
 		<Version>2.0.0</Version>
 
 		<PackageIconUrl></PackageIconUrl>
@@ -31,6 +31,10 @@
 		<ContentTargetFolders>content</ContentTargetFolders>
 	</PropertyGroup>
 
+	<Target Name="UmbPack" AfterTargets="Pack">
+		<Exec Command="umbpack pack package.xml -v $(Version) -o $(PackageOutputPath) -p Configuration=$(Configuration)" />
+	</Target>
+	
 	<!-- Package files -->
 	<ItemGroup>
 		<Content Include="content\App_Plugins\**\*.*">
