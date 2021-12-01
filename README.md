@@ -13,6 +13,8 @@ Examples include:
 - Editor Panels
 - Alerts
 
+> This repository contains examples of the current backoffice UI, which are not (yet) based on the new [Umbraco UI Library](https://github.com/umbraco/Umbraco.UI).
+
 ## Installing the Package 
 Umbraco v8: the UI Examples package can be added via the Package section of the backoffice *or* using NuGet (e.g. from the Package Manager Console: `Install-Package Our.Umbraco.UiExamples`).
 
