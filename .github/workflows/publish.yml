@@ -3,6 +3,11 @@ on:
     tags:
       - 'release-*'
 
+env:
+  DOTNET_NOLOGO: true
+  DOTNET_GENERATE_ASPNET_CERTIFICATE: false
+  DOTNET_SKIP_FIRST_TIME_EXPERIENCE: true
+
 jobs:
   build:
     name: Build
@@ -25,14 +30,14 @@ jobs:
       - name: Get Umbraco package file name
         run: |
           $packageFile = Get-Item *.zip | Select-Object -First 1 -ExpandProperty Name
-          echo "packageFile=$packageFile" >> $GITHUB_ENV
+          echo "OURUMBRACO_PACKAGE=$packageFile" >> $GITHUB_ENV
 
-      - name: Push to Our Umbraco
-        run: umbpack push "$env:packageFile" -k "$env:apiKey" -a *
+      - name: Push to Our.Umbraco
+        run: umbpack push "${{env.OURUMBRACO_PACKAGE}}" -k "$env:apiKey" -a *
         env:
-          apiKey: ${{ secrets.OURUMBRACO_API_KEY }}
+          apiKey: ${{secrets.OURUMBRACO_API_KEY}}
 
       - name: Push to NuGet
-        run: dotnet nuget push "*.nupkg" --source https://api.nuget.org/v3/index.json --api-key "$env:apiKey" --skip-duplicate
+        run: dotnet nuget push "*.nupkg" --api-key "$env:apiKey" --skip-duplicate
         env:
-          apiKey: ${{ secrets.NUGET_API_KEY }}
+          apiKey: ${{secrets.NUGET_API_KEY}}

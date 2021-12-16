@@ -8,6 +8,9 @@ on:
   workflow_call:
 
 env:
+  DOTNET_NOLOGO: true
+  DOTNET_GENERATE_ASPNET_CERTIFICATE: false
+  DOTNET_SKIP_FIRST_TIME_EXPERIENCE: true
   PROJECT: ./src/Our.Umbraco.UiExamples/Our.Umbraco.UiExamples.csproj
   OUTPUT: ./dist
 
