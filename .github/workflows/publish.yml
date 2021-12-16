@@ -10,6 +10,7 @@ env:
 
 jobs:
   build:
+    name: Build
     uses: umbraco/UI-Examples/.github/workflows/build.yml@master
     
   publish:
