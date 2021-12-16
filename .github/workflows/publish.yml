@@ -29,14 +29,10 @@ jobs:
 
       - name: Get Umbraco package file name
         id: get_package
-        run: echo ::set-output name=PACKAGE::$(Get-Item *.zip | Select-Object -First 1 -ExpandProperty Name)
+        run: echo "::set-output name=PACKAGE::$(Get-Item *.zip | Select-Object -First 1 -ExpandProperty Name)"
 
       - name: Push to Our.Umbraco
-        run: umbpack push "${{ steps.get_package.outputs.PACKAGE }}" -k "$env:apiKey" -a *
-        env:
-          apiKey: ${{ secrets.OURUMBRACO_API_KEY }}
+        run: umbpack push ${{ steps.get_package.outputs.PACKAGE }} -k ${{ secrets.OURUMBRACO_API_KEY }} -a *
 
       - name: Push to NuGet
-        run: dotnet nuget push "*.nupkg" --api-key "$env:apiKey" --skip-duplicate
-        env:
-          apiKey: ${{ secrets.NUGET_API_KEY }}
+        run: dotnet nuget push *.nupkg --api-key ${{ secrets.NUGET_API_KEY }} --skip-duplicate
