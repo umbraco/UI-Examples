@@ -1,0 +1,37 @@
+on:
+  push:
+    tags:
+      - 'release-*'
+
+jobs:
+  build:
+    name: Build
+    uses: umbraco/UI-Examples/.github/workflows/build.yml@master
+    
+  publish:
+    name: Publish
+    runs-on: windows-latest
+
+    steps:
+      - name: Download artifacts
+        uses: actions/download-artifact@v2
+        with:
+          name: packages
+
+      - name: Setup UmbPack
+        run: dotnet tool install Umbraco.Tools.Packages --global
+
+      - name: Get Umbraco package file name
+        run: |
+          $packageFile = Get-Item *.zip | Select-Object -First 1 -ExpandProperty Name
+          echo "packageFile=$packageFile" >> $GITHUB_ENV
+
+      - name: Push to Our Umbraco
+        run: umbpack push "$env:packageFile" -k "$env:apiKey" -a *
+        env:
+          apiKey: ${{ secrets.OURUMBRACO_API_KEY }}
+
+      - name: Push to NuGet
+        run: dotnet nuget push "*.nupkg" --source https://api.nuget.org/v3/index.json --api-key "$env:apiKey" --skip-duplicate
+        env:
+          apiKey: ${{ secrets.NUGET_API_KEY }}
