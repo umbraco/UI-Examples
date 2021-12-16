@@ -20,7 +20,7 @@ jobs:
         run: dotnet restore ${{env.PROJECT}}
 
       - name: Build
-        run: dotnet build ${{env.PROJECT}} -c Release --no-restore
+        run: dotnet build ${{env.PROJECT}} -c Release -p:ContinuousIntegrationBuild=true --no-restore
 
       - name: Pack
         run: dotnet pack ${{env.PROJECT}} -c Release -o ${{env.OUTPUT}} --no-restore --no-build
