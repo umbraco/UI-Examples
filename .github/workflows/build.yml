@@ -25,20 +25,27 @@ jobs:
         with:
           fetch-depth: 0
 
+      - uses: actions/cache@v1
+        with:
+          path: ~/.nuget/packages
+          key: ${{ runner.os }}-nuget-${{ hashFiles('**/packages.lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-nuget-
+
       - name: Setup UmbPack
         run: dotnet tool install Umbraco.Tools.Packages --global
 
       - name: Restore
-        run: dotnet restore ${{env.PROJECT}}
+        run: dotnet restore ${{ env.PROJECT }} --locked-mode
 
       - name: Build
-        run: dotnet build ${{env.PROJECT}} -c Release -p:ContinuousIntegrationBuild=true --no-restore
+        run: dotnet build ${{ env.PROJECT }} -c Release -p:ContinuousIntegrationBuild=true --no-restore
 
       - name: Pack
-        run: dotnet pack ${{env.PROJECT}} -c Release -o ${{env.OUTPUT}} --no-restore --no-build
+        run: dotnet pack ${{ env.PROJECT }} -c Release -o ${{ env.OUTPUT }} --no-restore --no-build
         
       - name: Upload artifacts
         uses: actions/upload-artifact@v2
         with:
           name: packages
-          path: ${{env.OUTPUT}}
+          path: ${{ env.OUTPUT }}
