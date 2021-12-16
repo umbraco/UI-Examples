@@ -1,23 +1,26 @@
 # Umbraco UI Examples
-
-UI Examples is a package that adds a new 'UI Examples' section to your Umbraco instance with working examples of how to customise the back-office. During installation the Admin user group will be given access to the section.
+UI Examples is a package that adds a new 'UI Examples' section to your Umbraco instance with working examples of how to customise the backoffice. During installation the Administrators user group will be given access to the section.
 
 https://our.umbraco.com/packages/developer-tools/ui-examples/
 
 Examples include:
-
-- Buttons
-- Icons
+- UmbBox
 - Layout
+- Dialogs
+- Icons
+- Buttons
+- Tabs
+- Editor Panels
+- Alerts
+
+> This repository contains examples of the current backoffice UI, which are not (yet) based on the new [Umbraco UI Library](https://github.com/umbraco/Umbraco.UI).
 
 ## Installing the Package 
+Umbraco v8: the UI Examples package can be added via the Package section of the backoffice *or* using NuGet (e.g. from the Package Manager Console: `Install-Package Our.Umbraco.UiExamples`).
 
-Umbraco v8: the UI Examples package can be added via the Package section of the back-office.
-
-Umbraco v9: COMING SOON!
+Umbraco v9: install the NuGet package using `dotnet add package Our.Umbraco.UiExamples` *or* manually adding a `PackageReference` to your project file.
 
 ## Contributing
+Contributions are welcome! Please refer to the [issues list](./issues) for ideas of where help is needed.
 
-Contributions are welcome! Please refer to the [Issues List](./issues) for ideas of where help is needed.
-
-Please read our [Contribution Guidelines](./CONTRIBUTING.md) for more information.
+Please read our [contribution guidelines](./CONTRIBUTING.md) for more information.

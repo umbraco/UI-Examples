@@ -8,12 +8,9 @@ using Umbraco.Core;
 using Umbraco.Core.Composing;
 #endif
 
-
 namespace Our.Umbraco.UiExamples.Migrations
 {
-
 #if NETCOREAPP
-
     public class UiExamplesMigrationComposer : IComposer
     {
         public void Compose(IUmbracoBuilder builder)
@@ -21,15 +18,9 @@ namespace Our.Umbraco.UiExamples.Migrations
             builder.AddNotificationHandler<UmbracoApplicationStartingNotification, UmbracoAppStartingHandler>();
         }
     }
-
-
 #else
     [RuntimeLevel(MinLevel = RuntimeLevel.Run)]
     public class UiExamplesMigrationComposer : ComponentComposer<UiExamplesMigrationComponent>, IUserComposer
     { }
 #endif
-
-
-
-
 }

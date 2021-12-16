@@ -1,0 +1,31 @@
+on: [push, pull_request]
+
+env:
+  PROJECT: ./src/Our.Umbraco.UiExamples/Our.Umbraco.UiExamples.csproj
+  OUTPUT: ./dist
+
+jobs:
+  build:
+    name: Build
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Setup UmbPack
+        run: dotnet tool install Umbraco.Tools.Packages --global
+
+      - name: Restore
+        run: dotnet restore ${{env.PROJECT}}
+
+      - name: Build
+        run: dotnet build ${{env.PROJECT}} -c Release --no-restore
+
+      - name: Pack
+        run: dotnet pack ${{env.PROJECT}} -c Release -o ${{env.OUTPUT}} --no-restore --no-build
+        
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          path: ${{env.OUTPUT}}
