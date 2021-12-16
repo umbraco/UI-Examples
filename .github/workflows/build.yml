@@ -1,4 +1,11 @@
-on: [push, pull_request]
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+  workflow_call:
 
 env:
   PROJECT: ./src/Our.Umbraco.UiExamples/Our.Umbraco.UiExamples.csproj
@@ -12,6 +19,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
 
       - name: Setup UmbPack
         run: dotnet tool install Umbraco.Tools.Packages --global
@@ -20,7 +29,7 @@ jobs:
         run: dotnet restore ${{env.PROJECT}}
 
       - name: Build
-        run: dotnet build ${{env.PROJECT}} -c Release --no-restore
+        run: dotnet build ${{env.PROJECT}} -c Release -p:ContinuousIntegrationBuild=true --no-restore
 
       - name: Pack
         run: dotnet pack ${{env.PROJECT}} -c Release -o ${{env.OUTPUT}} --no-restore --no-build
@@ -28,4 +37,5 @@ jobs:
       - name: Upload artifacts
         uses: actions/upload-artifact@v2
         with:
+          name: packages
           path: ${{env.OUTPUT}}
