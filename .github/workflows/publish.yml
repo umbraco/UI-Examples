@@ -28,12 +28,11 @@ jobs:
         run: dotnet tool install Umbraco.Tools.Packages --global
 
       - name: Get Umbraco package file name
-        run: |
-          $packageFile = Get-Item *.zip | Select-Object -First 1 -ExpandProperty Name
-          echo "OURUMBRACO_PACKAGE=$packageFile" >> $GITHUB_ENV
+        id: get_package
+        run: echo ::set-output name=PACKAGE::$(Get-Item *.zip | Select-Object -First 1 -ExpandProperty Name)
 
       - name: Push to Our.Umbraco
-        run: umbpack push "${{ env.OURUMBRACO_PACKAGE }}" -k "$env:apiKey" -a *
+        run: umbpack push "${{ steps.get_package.outputs.PACKAGE }}" -k "$env:apiKey" -a *
         env:
           apiKey: ${{ secrets.OURUMBRACO_API_KEY }}
 
