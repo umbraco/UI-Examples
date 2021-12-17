@@ -23,7 +23,6 @@ namespace Our.Umbraco.UiExamples.Migrations
             _profilingLogger = profilingLogger;
         }
 
-
         public void Initialize()
         {
             var upgrader = new Upgrader(new UiExamplesMigrationPlan());

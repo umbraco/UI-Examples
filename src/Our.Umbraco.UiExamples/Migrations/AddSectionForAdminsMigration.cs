@@ -1,11 +1,11 @@
 ﻿#if NETCOREAPP
+using Umbraco.Cms.Core;
+using Umbraco.Cms.Core.Logging;
 using Umbraco.Cms.Core.Scoping;
 using Umbraco.Cms.Core.Services;
-using Umbraco.Cms.Core;
-using Umbraco.Cms.Infrastructure.Migrations;
-using Umbraco.Cms.Core.Logging;
 using Umbraco.Cms.Core.Web;
-#else 
+using Umbraco.Cms.Infrastructure.Migrations;
+#else
 using Umbraco.Core;
 using Umbraco.Core.Migrations;
 using Umbraco.Core.Scoping;
@@ -33,7 +33,7 @@ namespace Our.Umbraco.UiExamples.Migrations
         protected override void Migrate()
 #else
         public override void Migrate()
-#endif       
+#endif
         {
             using (UmbracoContextReference umbracoContextReference = _context.EnsureUmbracoContext())
             {
@@ -47,7 +47,6 @@ namespace Our.Umbraco.UiExamples.Migrations
                     scope.Complete();
                 }
             }
-
         }
     }
 }
