@@ -74,7 +74,7 @@
       "Examine": {
         "type": "Transitive",
         "resolved": "1.0.0",
-        "contentHash": "t7d+EFK9jUorWkzsZO0iCKNyhaY7Wi495HBKREWsEtBGtsftNyHyh5rI4EwKhKEtuupXBw7UETVDkVy2FH7Uhw==",
+        "contentHash": "R2QH8VbCkFV5GQlUl1Ifmtz9W3K1ziNZDqVigzDswZJPLKHpG0cBApOtXRs2/febw3uLeOkJ6CHMNgqdMB8zUQ==",
         "dependencies": {
           "Lucene.Net": "[3.0.3, 4.0.0)"
         }
