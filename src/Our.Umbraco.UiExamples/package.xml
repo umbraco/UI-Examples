@@ -7,8 +7,8 @@
 			<url>https://our.umbraco.com/packages/developer-tools/ui-examples/</url>
 			<requirements type="strict">
 				<major>8</major>
-				<minor>10</minor>
-				<patch>1</patch>
+				<minor>0</minor>
+				<patch>0</patch>
 			</requirements>
 		</package>
 		<author>

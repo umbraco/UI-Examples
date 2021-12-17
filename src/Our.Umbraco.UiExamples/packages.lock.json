@@ -20,16 +20,15 @@
       },
       "UmbracoCms.Web": {
         "type": "Direct",
-        "requested": "[8.10.1, )",
-        "resolved": "8.10.1",
-        "contentHash": "q3DqIlRhozvNC0K2+NFGWn1f/mjgjalcnqHYwVZnb/zwJswYFcy6zSvBK+3ljXCBhKHKVuTciQYvr+18b8bi/Q==",
+        "requested": "[8.0.0, )",
+        "resolved": "8.0.0",
+        "contentHash": "EQvrkLQ4MCVNJErT1LfzEaUqd8/FKiFC5Tbkaghfxi7CgS/b5KAhX7H0855Vgw8ghmA7XLa4Y7mvG5dc5jGG/g==",
         "dependencies": {
           "CSharpTest.Net.Collections": "[14.906.1403.1082, 14.999999.0)",
-          "ClientDependency": "[1.9.9, 1.999999.0)",
-          "ClientDependency-Mvc5": "[1.9.3, 1.999999.0)",
-          "Examine": "[1.0.2, 1.999999.0)",
+          "ClientDependency": "[1.9.7, 1.999999.0)",
+          "ClientDependency-Mvc5": "[1.8.0, 1.999999.0)",
+          "Examine": "[1.0.0, 1.999999.0)",
           "HtmlAgilityPack": "[1.8.14, 1.999999.0)",
-          "HtmlSanitizer": "[4.0.217, 4.999999.0)",
           "ImageProcessor": "[2.7.0.100, 2.999999.0)",
           "LightInject.Mvc": "[2.0.0, 2.999999.0)",
           "LightInject.WebApi": "[2.0.0, 2.999999.0)",
@@ -42,23 +41,26 @@
           "Microsoft.Owin.Security.Cookies": "[4.0.1, 4.999999.0)",
           "Microsoft.Owin.Security.OAuth": "[4.0.1, 4.999999.0)",
           "System.Threading.Tasks.Dataflow": "[4.9.0, 4.999999.0)",
-          "UmbracoCms.Core": "[8.10.1]"
+          "UmbracoCms.Core": "[8.0.0]"
         }
       },
-      "AngleSharp": {
+      "AutoMapper": {
         "type": "Transitive",
-        "resolved": "0.9.11",
-        "contentHash": "9+4CpMbQPNjpcaeeqMIKXfqfZ6FsDBaiYO/hws+p6l5zS2kcvUDImutew/jxCiORLofgRgDi3MB9WbOPYyMujA=="
+        "resolved": "8.0.0",
+        "contentHash": "px8ZMtIq84dxciB29V+ZYOtsRLZP4JlflDDMW13LyeRdwsnIInzlcSHSxpWmVD6U3bbOl2FeLlgomnVtm0jvXw==",
+        "dependencies": {
+          "System.ValueTuple": "4.5.0"
+        }
       },
       "ClientDependency": {
         "type": "Transitive",
-        "resolved": "1.9.9",
-        "contentHash": "0Rv6H1FY32BXtaKeR9bKEbFaQ33WWhNprfo8P15vezxfJpVpBRmOBbqLwoTocZfrBIKpq+BfpfGpUD7ekpFKYA=="
+        "resolved": "1.9.7",
+        "contentHash": "G5uthd+bcxufMQW5olz29pmtlm2znmUzbF44dm9hOxsqtcuH3zu2Hz13wLZrIlgwRSxdXoSS4ouZVU3clhE/ZA=="
       },
       "ClientDependency-Mvc5": {
         "type": "Transitive",
-        "resolved": "1.9.3",
-        "contentHash": "kp+aIhV92QtWtq9dsCTD0nxebIsdDBDyrIzbKbYZqniRf6ji5R6TjGp8Roty8nh7oeiryp4mjvDxSrmWXLRopg==",
+        "resolved": "1.8.0",
+        "contentHash": "LauKtL72wcm/Gw4H5u/AMwvHoyyw/sUdYuNQ4fIYs0dgfIRfjR6Dkf4+ThehsVXVYBBBJHQSUL/vDzM6eudUDg==",
         "dependencies": {
           "ClientDependency": "1.8.0",
           "Microsoft.AspNet.Mvc": "5.0.0"
@@ -71,8 +73,8 @@
       },
       "Examine": {
         "type": "Transitive",
-        "resolved": "1.0.2",
-        "contentHash": "tpikEhEP+YUi0z6h0XWlh96YTcrZvfTaLAZRP0M5LWMVtN/khr1u3qaKnhwgFUWrehfqIF7VGKwZ2IcOjD0tqg==",
+        "resolved": "1.0.0",
+        "contentHash": "t7d+EFK9jUorWkzsZO0iCKNyhaY7Wi495HBKREWsEtBGtsftNyHyh5rI4EwKhKEtuupXBw7UETVDkVy2FH7Uhw==",
         "dependencies": {
           "Lucene.Net": "[3.0.3, 4.0.0)"
         }
@@ -81,14 +83,6 @@
         "type": "Transitive",
         "resolved": "1.8.14",
         "contentHash": "HfQYd6XhNm7I3iF2Ui/KQMUagVGj41JjwBzq170gnuHr4Lc92n577OekCbs9JKMV7kSwtDkL5Hsm6ludFc+B0g=="
-      },
-      "HtmlSanitizer": {
-        "type": "Transitive",
-        "resolved": "4.0.217",
-        "contentHash": "QJON8mKjhTxWM+gbkYZ88Q5/gN3xxGNj8JHXij6Btkm16LivupWitdLP30XSH4iDIFVKNrvC0eYULPfiP0ZVlw==",
-        "dependencies": {
-          "AngleSharp": "[0.9.11]"
-        }
       },
       "ImageProcessor": {
         "type": "Transitive",
@@ -389,28 +383,12 @@
           "Serilog": "2.6.0"
         }
       },
-      "Serilog.Sinks.Async": {
-        "type": "Transitive",
-        "resolved": "1.3.0",
-        "contentHash": "G45b5qzoFYDDGy1SQznNJDQA4mfUESslkWh9S5Y48egtSpZoMDrj5MWoiucEoiMCbza+GLoZk8edprPO7P0Atw==",
-        "dependencies": {
-          "Serilog": "2.7.1"
-        }
-      },
       "Serilog.Sinks.File": {
         "type": "Transitive",
         "resolved": "4.0.0",
         "contentHash": "vBj43RkAbeP1dzoPFR2+LfV5GevDRPDq6265JJBv223lMvT9rfdwe/S/I9ow7aZSLYKfw4qPDw6NW8YwjbDbvg==",
         "dependencies": {
           "Serilog": "2.5.0"
-        }
-      },
-      "Serilog.Sinks.Map": {
-        "type": "Transitive",
-        "resolved": "1.0.0",
-        "contentHash": "WkQ7FwK3c1mdba7KpZBF43Fc+wyNRpZHidhFixhoEtwnUq9SFCCFoW8rBNDg1cSMsb1OPtRBsLW223vkxKC5AQ==",
-        "dependencies": {
-          "Serilog": "2.8.0"
         }
       },
       "SharpZipLib": {
@@ -445,9 +423,10 @@
       },
       "UmbracoCms.Core": {
         "type": "Transitive",
-        "resolved": "8.10.1",
-        "contentHash": "WFdWhnjE6zeie6nId6twSopb2kSvODm9vuTT0gOK5zwwYifQnsrAAaIkFXyIGy1jUpANGnexWM5zuU5SkHOAQw==",
+        "resolved": "8.0.0",
+        "contentHash": "kKYziSpquZ2BNog7Kbba1V+Yqu0G6BB0B2ERC5ASiQNEr45+kSaeSZoxIgqWaPZOBFY1if+dlx/ZgOvJOZSXxA==",
         "dependencies": {
+          "AutoMapper": "[8.0.0, 8.999999.0)",
           "LightInject": "[5.4.0, 5.999999.0)",
           "LightInject.Annotation": "[1.1.0, 1.999999.0)",
           "LightInject.Web": "[2.0.0, 2.999999.0)",
@@ -465,9 +444,7 @@
           "Serilog.Formatting.Compact": "[1.0.0, 1.999999.0)",
           "Serilog.Formatting.Compact.Reader": "[1.0.3, 1.999999.0)",
           "Serilog.Settings.AppSettings": "[2.2.2, 2.999999.0)",
-          "Serilog.Sinks.Async": "[1.3.0, 1.999999.0)",
           "Serilog.Sinks.File": "[4.0.0, 4.999999.0)",
-          "Serilog.Sinks.Map": "[1.0.0, 1.999999.0)",
           "Umbraco.SqlServerCE": "[4.0.0.1, 4.999999.0)"
         }
       }
