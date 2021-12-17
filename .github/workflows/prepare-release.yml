@@ -44,7 +44,7 @@ jobs:
         run: dotnet tool install nbgv --global
 
       - name: Prepare release
-        run: nbgv prepare-release ${{ github.event.inputs.tag }}
+        run: nbgv prepare-release ${{ github.event.inputs.tag }} -p src
 
       - name: Push commit and new branch
         run: git push --all origin
