@@ -3,21 +3,19 @@ on:
     inputs:
       tag:
         description: 'The prerelease tag to apply on the release branch (if any). If not specified, any existing prerelease tag will be removed. The preceding hyphen may be omitted.'
-        required: false
-        default: ''
-      nextVersion:
-        description: 'The version to set for the current branch. If omitted, the next version is determined automatically by incrementing the current version.'
-        required: false
-        default: ''
-      versionIncrement:
         type: choice
         options:
-        - major
-        - minor
-        - build
-        description: 'Overrides the versionIncrement setting set in version.json for determining the next version of the current branch.The version to set for the current branch. If omitted, the next version is determined automatically by incrementing the current version.'
-        required: false
-        default: ''
+        - ''
+        - 'beta'
+        - 'rc'
+      versionIncrement:
+        description: 'Overrides the versionIncrement setting set in version.json for determining the next version of the current branch.'
+        type: choice
+        options:
+        - ''
+        - 'major'
+        - 'minor'
+        - 'build'
 
 env:
   DOTNET_NOLOGO: true
@@ -44,7 +42,12 @@ jobs:
         run: dotnet tool install nbgv --global
 
       - name: Prepare release
+        if: github.event.inputs.versionIncrement == ''
         run: nbgv prepare-release ${{ github.event.inputs.tag }} -p src
 
+      - name: Prepare release
+        if: github.event.inputs.versionIncrement != ''
+        run: nbgv prepare-release ${{ github.event.inputs.tag }} -p src --versionIncrement ${{ github.event.inputs.versionIncrement }}
+
       - name: Push commit and new branch
-        run: git push --all origin
+        run: git push --all

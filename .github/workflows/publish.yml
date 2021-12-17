@@ -2,6 +2,7 @@ on:
   push:
     tags:
       - 'release-*'
+      - 'v*'
 
 env:
   DOTNET_NOLOGO: true
