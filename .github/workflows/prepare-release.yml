@@ -6,6 +6,7 @@ on:
       tag:
         description: 'The prerelease tag to apply on the release branch (if any). If not specified, any existing prerelease tag will be removed. The preceding hyphen may be omitted.'
         required: false
+        default: ''
         type: choice
         options:
         - ''
@@ -14,6 +15,7 @@ on:
       versionIncrement:
         description: 'Overrides the versionIncrement setting set in version.json for determining the next version of the current branch.'
         required: false
+        default: ''
         type: choice
         options:
         - ''
