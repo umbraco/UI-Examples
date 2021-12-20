@@ -1,10 +1,8 @@
 name: Publish
 
 on:
-  push:
-    tags:
-      - 'release-*'
-      - 'v*'
+  release:
+    types: [published]
 
 env:
   DOTNET_NOLOGO: true
