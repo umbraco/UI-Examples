@@ -25,15 +25,17 @@ jobs:
         with:
           name: packages
 
-      - name: Setup UmbPack
-        run: dotnet tool install Umbraco.Tools.Packages --global
-
       - name: Get Umbraco package file name
         id: get_package
         run: echo "::set-output name=PACKAGE::$(Get-Item *.zip | Select-Object -First 1 -ExpandProperty Name)"
+      
+      - name: Setup UmbPack
+        if: steps.get_package.outputs.PACKAGE
+        run: dotnet tool install --tool-path . Umbraco.Tools.Packages
 
       - name: Push to Our.Umbraco
-        run: umbpack push ${{ steps.get_package.outputs.PACKAGE }} -k ${{ secrets.OURUMBRACO_API_KEY }} -a *
+        if: steps.get_package.outputs.PACKAGE
+        run: ./umbpack push ${{ steps.get_package.outputs.PACKAGE }} -k ${{ secrets.OURUMBRACO_API_KEY }} -a *
 
       - name: Push to NuGet
         run: dotnet nuget push *.nupkg --source https://api.nuget.org/v3/index.json --api-key ${{ secrets.NUGET_API_KEY }} --skip-duplicate
