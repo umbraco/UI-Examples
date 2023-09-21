@@ -379,3 +379,4 @@ FodyWeavers.xsd
 
 # Ignore the copied App_Plugins folder
 samples/*/App_Plugins/uiexamples/*
+/samples/Umbraco14.Website/App_Plugins

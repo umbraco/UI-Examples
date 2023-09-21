@@ -1,6 +1,6 @@
 # How this works
 
-go into `src\Our.Umbraco.UiExamples.v14\App_Plugins\Our.Umbraco.UiExamples.v14`  
+go into `src`  
 run `npm ci`  
 run `npm run dev`  
 

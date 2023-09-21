@@ -6,7 +6,7 @@ export default defineConfig({
             entry: "src/my-element.ts", // your web component source file
             formats: ["es"],
         },
-        outDir: "../../../../samples/Umbraco14.Website/App_Plugins/Example.UI/scripts", // your web component will be saved in this location
+        outDir: "../../samples/Umbraco14.Website/App_Plugins/Example.UI/scripts", // your web component will be saved in this location
         sourcemap: true,
         rollupOptions: {
             external: [/^@umbraco/],
