@@ -27,7 +27,7 @@ export class MyElement extends LitElement {
     return html`
       <div>
         <a href="https://vitejs.dev" target="_blank">
-          <img src=${viteLogo} class="logo" alt="Vite logo" />
+          <img src=${viteLogo} class="logo small" alt="Vite logo" />
         </a>
         <a href="https://lit.dev" target="_blank">
           <img src=${litLogo} class="logo lit" alt="Lit logo" />

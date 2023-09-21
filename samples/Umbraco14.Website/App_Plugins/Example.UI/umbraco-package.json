@@ -17,8 +17,8 @@
         "type": "dashboard",
         "alias": "example.ui.dashboard",
         "name": "Example UI Dashboard",
-        "js": "/App_Plugins/Example.UI/dashboard.js",
-        "elementName": "my-welcome-dashboard",
+        "js": "/App_Plugins/Example.UI/scripts/our-umbraco-uiexamples-v14.js",
+        "elementName": "my-element",
         "weight": -1,
         "meta": {
           "label": "Welcome Dashboard",
