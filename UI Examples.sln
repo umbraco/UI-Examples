@@ -7,12 +7,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	ProjectSection(SolutionItems) = preProject
 		.gitattributes = .gitattributes
 		.gitignore = .gitignore
-		CONTRIBUTING.md = CONTRIBUTING.md
-		README.md = README.md
 		.github\workflows\build.yml = .github\workflows\build.yml
+		CONTRIBUTING.md = CONTRIBUTING.md
 		.github\workflows\prepare-release.yml = .github\workflows\prepare-release.yml
 		.github\workflows\publish-release.yml = .github\workflows\publish-release.yml
 		.github\workflows\publish.yml = .github\workflows\publish.yml
+		README.md = README.md
 		src\version.json = src\version.json
 	EndProjectSection
 EndProject
@@ -21,6 +21,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Umbraco8.Website", "samples\Umbraco8.Website\Umbraco8.Website.csproj", "{278F12BA-8B25-46AE-8BB0-A0B9AB50EEA4}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Umbraco9.Website", "samples\Umbraco9.Website\Umbraco9.Website.csproj", "{7C6C2FFA-25A4-4CC4-9AA1-49B2DFB68DFC}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Umbraco14.Website", "samples\Umbraco14.Website\Umbraco14.Website.csproj", "{D9B26368-94C2-4A90-B84C-506411254F9D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -40,6 +42,10 @@ Global
 		{7C6C2FFA-25A4-4CC4-9AA1-49B2DFB68DFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7C6C2FFA-25A4-4CC4-9AA1-49B2DFB68DFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7C6C2FFA-25A4-4CC4-9AA1-49B2DFB68DFC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D9B26368-94C2-4A90-B84C-506411254F9D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D9B26368-94C2-4A90-B84C-506411254F9D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D9B26368-94C2-4A90-B84C-506411254F9D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D9B26368-94C2-4A90-B84C-506411254F9D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

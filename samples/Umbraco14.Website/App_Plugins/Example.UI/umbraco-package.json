@@ -1,0 +1,35 @@
+{
+    "$schema": "../../umbraco-package-schema.json",
+    "name": "Example.UI",
+    "version": "0.1.0",
+    "extensions": [
+      {
+        "type": "section",
+        "alias": "example.ui.section",
+        "name": "Example UI Dashboard",
+        "weight": -1,
+        "meta": {
+          "label": "Example UI",
+          "pathname": "my-dashboard"
+        }
+      },
+      {
+        "type": "dashboard",
+        "alias": "example.ui.dashboard",
+        "name": "Example UI Dashboard",
+        "js": "/App_Plugins/Example.UI/dashboard.js",
+        "elementName": "my-welcome-dashboard",
+        "weight": -1,
+        "meta": {
+          "label": "Welcome Dashboard",
+          "pathname": "welcome-dashboard"
+        },
+        "conditions": [
+          {
+            "alias": "Umb.Condition.SectionAlias",
+            "match": "example.ui.section"
+          }
+        ]
+      }
+    ]
+}
