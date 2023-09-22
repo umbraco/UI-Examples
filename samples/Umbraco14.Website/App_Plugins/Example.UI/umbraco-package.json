@@ -17,8 +17,7 @@
       "type": "dashboard",
       "alias": "example.ui.dashboard",
       "name": "Example UI Dashboard",
-      "js": "/App_Plugins/Example.UI/scripts/our-umbraco-uiexamples-v14.js",
-      "elementName": "my-element",
+      "js": "/App_Plugins/Example.UI/scripts/welcome-dashboard.js",
       "weight": -1,
       "meta": {
         "label": "Welcome Dashboard",
@@ -33,14 +32,13 @@
     },
     {
       "type": "dashboard",
-      "alias": "example.ui.umbBox",
-      "name": "UmbBox",
-      "js": "/App_Plugins/Example.UI/umbBox.js",
-      "elementName": "umb-box-dashboard",
+      "alias": "example.ui.dashboard.dialogs",
+      "name": "Dialogs",
+      "js": "/App_Plugins/Example.UI/scripts/custom-dialogs.js",
       "weight": -1,
       "meta": {
-        "label": "UmbBox",
-        "pathname": "umb-box"
+        "label": "Dialogs",
+        "pathname": "dialogs"
       },
       "conditions": [
         {
@@ -48,7 +46,6 @@
           "match": "example.ui.section"
         }
       ]
-    }
-
+    }    
   ]
 }
