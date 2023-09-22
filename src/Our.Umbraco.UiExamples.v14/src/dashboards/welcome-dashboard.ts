@@ -1,5 +1,5 @@
 import { LitElement, css, html } from 'lit'
-import { customElement, property } from 'lit/decorators.js'
+import { customElement, property, state } from 'lit/decorators.js'
 
 /**
  * An example element.
@@ -19,16 +19,15 @@ export default class UieWelcomeDashboard extends LitElement {
   /**
    * The number of times the button has been clicked.
    */
-  @property({ type: Number })
+  @state()
   count = 0
 
   render() {
       return html`
         <uui-box>
-            <div slot="headline" class="header-bar sub-header">
+            <div slot="header" class="header-bar">
                 <div>
                     <h5 class="title">UI Examples<br/><span class="sub-header">Using the new backoffice</span></h5>
-                    
                 </div>
                 <div>
                     <uui-button href="https://uui.umbraco.com/"  target="_blank" look="primary" color="positive">
@@ -42,7 +41,6 @@ export default class UieWelcomeDashboard extends LitElement {
                 <p>It contains an overview of several backoffice elements and shows you how to use them. Each UI example is linked to from a tab in the section header.</p>
                 <p>The package is also great reference material, if you see something within this section - that isn't covered on one of the tabs - you can go to your App_Plugins folder and check the source.</p>
                 <p>Everything in this package is front-end only (except for a bit of code that automatically adds this section to all user groups).</p>
-
             </slot>
         </uui-box>
     `
@@ -69,14 +67,6 @@ export default class UieWelcomeDashboard extends LitElement {
     color: #000;
     font-weight: 700;
     margin:0;
-    }
-    a {
-      font-weight: 500;
-      color: #646cff;
-      text-decoration: inherit;
-    }
-    a:hover {
-      color: #535bf2;
     }
     .sub-header {
         font-size: 13px;

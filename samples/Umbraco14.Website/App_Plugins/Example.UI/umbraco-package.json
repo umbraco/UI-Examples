@@ -34,7 +34,7 @@
       "type": "dashboard",
       "alias": "example.ui.dashboard.dialogs",
       "name": "Dialogs",
-      "js": "/App_Plugins/Example.UI/scripts/custom-dialogs.js",
+      "js": "/App_Plugins/Example.UI/scripts/custom-dialogs-dashboard.js",
       "weight": -1,
       "meta": {
         "label": "Dialogs",
