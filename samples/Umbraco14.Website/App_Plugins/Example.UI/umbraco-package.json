@@ -17,7 +17,7 @@
       "type": "dashboard",
       "alias": "example.ui.dashboard",
       "name": "Example UI Dashboard",
-      "js": "/App_Plugins/Example.UI/scripts/welcome-dashboard.js",
+      "js": "/App_Plugins/Example.UI/scripts/dashboards/welcome-dashboard.js",
       "weight": -1,
       "meta": {
         "label": "Welcome Dashboard",
@@ -34,7 +34,7 @@
       "type": "dashboard",
       "alias": "example.ui.dashboard.dialogs",
       "name": "Dialogs",
-      "js": "/App_Plugins/Example.UI/scripts/custom-dialogs-dashboard.js",
+      "js": "/App_Plugins/Example.UI/scripts/dashboards/custom-dialogs-dashboard.js",
       "weight": -1,
       "meta": {
         "label": "Dialogs",
@@ -46,6 +46,24 @@
           "match": "example.ui.section"
         }
       ]
-    }    
+    },
+    {
+      "type": "sectionView",
+      "alias": "example.ui.dashboard.section.boxlayout",
+      "js": "/App_Plugins/Example.UI/scripts/sections/box-layout-section.js",
+      "name": "Box Layout",
+      "meta": {
+        "sections": [ "example.ui.section" ],
+        "label": "Box Layout",
+        "icon": "folder",
+        "pathname": "box-layout"
+      },
+      "conditions": [
+        {
+          "alias": "Umb.Condition.SectionAlias",
+          "match": "example.ui.section"
+        }
+      ]
+    }
   ]
 }
