@@ -18,3 +18,6 @@ In a separate terminal window, to run the umbraco project, open the path /sample
 run `dotnet run`
 
 You can then launch the umbraco solution and should see the new back office section.
+
+> [!NOTE]  
+> For a more general introduction into getting started with development for v14, please read the [Umbraco Documentation](https://docs.umbraco.com/umbraco-backoffice/)
