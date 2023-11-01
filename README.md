@@ -1,4 +1,8 @@
 # Umbraco UI Examples
+> [!IMPORTANT]  
+> Hey you! Are you looking to get involved in development of the Umbraco v14 version? Head over to the [dev/v14](https://github.com/umbraco/UI-Examples/tree/dev/v14) branch to get started.
+> P.S. We've also tagged a bunch of [issues with Umbraco 14](https://github.com/umbraco/UI-Examples/issues?q=is%3Aissue+is%3Aopen+label%3A%22Umbraco+14%22) ripe for the picking.
+ 
 UI Examples is a package that adds a new 'UI Examples' section to your Umbraco instance with working examples of how to customise the backoffice. During installation the Administrators user group will be given access to the section.
 
 https://our.umbraco.com/packages/developer-tools/ui-examples/
