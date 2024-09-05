@@ -62,6 +62,9 @@ project.lock.json
 project.fragment.lock.json
 artifacts/
 
+# Tye
+.tye/
+
 # ASP.NET Scaffolding
 ScaffoldingReadMe.txt
 
@@ -361,26 +364,119 @@ MigrationBackup/
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
 
-# IDEs and Editors
-.vs/
-.vscode/
+##
+## Visual studio for Mac
+##
+
+
+# globs
+Makefile.in
+*.userprefs
+*.usertasks
+config.make
+config.status
+aclocal.m4
+install-sh
+autom4te.cache/
+*.tar.gz
+tarballs/
+test-results/
+
+# Mac bundle stuff
+*.dmg
+*.app
+
+# content below from: https://github.com/github/gitignore/blob/master/Global/macOS.gitignore
+# General
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Icon must end with two \r
+Icon
+
+
+# Thumbnails
+._*
+
+# Files that might appear in the root of a volume
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+# Directories potentially created on remote AFP share
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+# content below from: https://github.com/github/gitignore/blob/master/Global/Windows.gitignore
+# Windows thumbnail cache files
+Thumbs.db
+ehthumbs.db
+ehthumbs_vista.db
+
+# Dump file
+*.stackdump
+
+# Folder config file
+[Dd]esktop.ini
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# Windows Installer files
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+
+# Windows shortcuts
+*.lnk
+
+# JetBrains Rider
 .idea/
+*.sln.iml
 
-# Umbraco things
-**/[Uu]mbraco/
-**/[Uu]mbraco_[Cc]lient/
-**/App_Data/
-**/App_Data/[Pp]review/
-**/App_Data/TEMP/
-**/App_Data/NuGetBackup/
-**/App_Data/Umbraco.config
-**/App_Data/cache/
+##
+## Visual Studio Code
+##
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
 
-# Umbraco media (only include config)
-**/Media/**
-!**/Media/Web.config
+##
+## Umbraco CMS
+##
 
-# Ignore the copied App_Plugins folder
-samples/*/App_Plugins/uiexamples/*
-/samples/Umbraco14.Website/App_Plugins
+# JSON schema files for appsettings.json
+appsettings-schema.json
+appsettings-schema.*.json
 
+# JSON schema file for umbraco-package.json
+umbraco-package-schema.json
+
+# Packages created from the backoffice (package.xml/package.zip)
+/umbraco/Data/CreatedPackages/
+
+# Temp folder containing Examine indexes, NuCache, MediaCache, etc.
+/umbraco/Data/TEMP/
+
+# SQLite database files
+/umbraco/Data/*.sqlite.db
+/umbraco/Data/*.sqlite.db-shm
+/umbraco/Data/*.sqlite.db-wal
+
+# Log files
+/umbraco/Logs/
+
+# Media files
+/wwwroot/media/
