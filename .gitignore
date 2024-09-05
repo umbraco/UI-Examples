@@ -361,7 +361,10 @@ MigrationBackup/
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
 
+# IDEs and Editors
 .vs/
+.vscode/
+.idea/
 
 # Umbraco things
 **/[Uu]mbraco/
@@ -380,3 +383,4 @@ FodyWeavers.xsd
 # Ignore the copied App_Plugins folder
 samples/*/App_Plugins/uiexamples/*
 /samples/Umbraco14.Website/App_Plugins
+
