@@ -4,8 +4,6 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "devVite": "vite build --watch",
-    "devTsc": "tsc",
     "dev": "tsc && vite build --watch",
     "build": "tsc && vite build",
     "preview": "vite preview"
