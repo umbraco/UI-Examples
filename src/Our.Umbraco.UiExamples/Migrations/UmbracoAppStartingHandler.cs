@@ -1,5 +1,4 @@
-﻿#if NETCOREAPP
-using Umbraco.Cms.Core.Events;
+﻿using Umbraco.Cms.Core.Events;
 using Umbraco.Cms.Core.Migrations;
 using Umbraco.Cms.Core.Notifications;
 using Umbraco.Cms.Core.Scoping;
@@ -33,4 +32,3 @@ namespace Our.Umbraco.UiExamples.Migrations
         }
     }
 }
-#endif
