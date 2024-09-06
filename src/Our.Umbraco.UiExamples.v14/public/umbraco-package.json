@@ -1,0 +1,12 @@
+{
+    "name": "My Package Name",
+    "version": "0.1.0",
+    "extensions": [
+        {
+            "type": "bundle",
+            "alias": "My.Package.Bundle",
+            "name": "Example.UI",
+            "js": "/App_Plugins/Example.UI/manifest.js"
+        }
+    ]
+}
