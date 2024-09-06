@@ -61,6 +61,12 @@ export const manifests: Array<ManifestTypes> = [
         "match": "example.ui.section"
       }
     ]
+  },
+  {
+    "type": "modal",
+    "alias": "My.Modal",
+    "name": "My Modal",
+    "element":  () => import("./scripts/dialogs/custom-modal.ts"),
   }
 	// ... insert as many manifests as you like
 
