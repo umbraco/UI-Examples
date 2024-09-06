@@ -1,10 +1,10 @@
 {
-    "name": "My Package Name",
+    "name": "Umbraco UI Examples",
     "version": "0.1.0",
     "extensions": [
         {
             "type": "bundle",
-            "alias": "My.Package.Bundle",
+            "alias": "example.ui.bundle",
             "name": "Example.UI",
             "js": "/App_Plugins/Example.UI/manifest.js"
         }

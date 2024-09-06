@@ -8,7 +8,7 @@ export type MyModalValue = {
     myData: string;
 }
 
-export const MY_DIALOG_TOKEN = new UmbModalToken<MyModalData, MyModalValue>('My.Dialog', {
+export const MY_DIALOG_TOKEN = new UmbModalToken<MyModalData, MyModalValue>('example.ui.modals.dialog', {
     modal: {
         type: 'dialog',
         size: 'small'

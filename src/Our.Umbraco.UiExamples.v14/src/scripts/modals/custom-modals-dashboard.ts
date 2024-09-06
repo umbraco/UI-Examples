@@ -1,7 +1,7 @@
 import { LitElement, css, html } from 'lit'
 import { customElement, property } from 'lit/decorators.js'
-import { MY_DIALOG_TOKEN } from '../modals/custom-dialog.token';
-import { MY_SIDEBAR_TOKEN } from '../modals/custom-sidebar.token';
+import { MY_DIALOG_TOKEN } from './custom-dialog.token';
+import { MY_SIDEBAR_TOKEN } from './custom-sidebar.token';
 import { UMB_MODAL_MANAGER_CONTEXT, UMB_CONTEXT_DEBUGGER_MODAL, UMB_CONFIRM_MODAL, UMB_CODE_EDITOR_MODAL } from '@umbraco-cms/backoffice/modal';
 import { UmbElementMixin } from '@umbraco-cms/backoffice/element-api';
 

@@ -1,21 +1,21 @@
 import type { ManifestTypes } from '@umbraco-cms/backoffice/extension-registry';
 
 export const manifests: Array<ManifestTypes> = [
-	{
-		"type": "section",
-		"name": "Example UI Dashboard",
-		"alias": "example.ui.section",
-		"weight": 900,
-		"meta": {
-			"label": "Example UI",
-			"pathname": "example-ui"
-		}
-	},
+  {
+    "type": "section",
+    "name": "Example UI Dashboard",
+    "alias": "example.ui.section",
+    "weight": 900,
+    "meta": {
+      "label": "Example UI",
+      "pathname": "example-ui"
+    }
+  },
   {
     "type": "dashboard",
     "alias": "example.ui.dashboard",
     "name": "Example UI Dashboard",
-		"element": () => import("./scripts/dashboards/welcome-dashboard.ts"),
+    "element": () => import("./scripts/dashboards/welcome-dashboard.ts"),
     "weight": -1,
     "meta": {
       "label": "Welcome Dashboard",
@@ -29,26 +29,15 @@ export const manifests: Array<ManifestTypes> = [
     ]
   },
   {
-    "type": "dashboard",
-    "alias": "example.ui.dashboard.modals",
-    "name": "Modals",
-		"element": () => import("./scripts/dashboards/custom-modals-dashboard.ts"),
-    "weight": -1,
-    "meta": {
-      "label": "Modals",
-      "pathname": "modals"
-    },
-    "conditions": [
-      {
-        "alias": "Umb.Condition.SectionAlias",
-        "match": "example.ui.section"
-      }
-    ]
+    "type": "bundle",
+    "alias": "example.ui.modals",
+    "name": "Example.UI - Modals",
+    "js": () => import("./scripts/modals/manifest.ts")
   },
   {
     "type": "sectionView",
     "alias": "example.ui.dashboard.section.boxlayout",
-		"element": () => import("./scripts/sections/box-layout-section.ts"),
+    "element": () => import("./scripts/sections/box-layout-section.ts"),
     "name": "Box Layout",
     "meta": {
       "label": "Box Layout",
@@ -61,17 +50,5 @@ export const manifests: Array<ManifestTypes> = [
         "match": "example.ui.section"
       }
     ]
-  },
-  {
-    "type": "modal",
-    "alias": "My.Dialog",
-    "name": "My Dialog",
-    "element":  () => import("./scripts/modals/custom-dialog.ts"),
-  },
-  {
-    "type": "modal",
-    "alias": "My.Sidebar",
-    "name": "My Sidebar Modal",
-    "element":  () => import("./scripts/modals/custom-sidebar.ts"),
   }
 ]

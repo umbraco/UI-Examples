@@ -9,7 +9,7 @@ export type MySidebarValue = {
     myText: string;
 }
 
-export const MY_SIDEBAR_TOKEN = new UmbModalToken<MySidebarData, MySidebarValue>('My.Sidebar', {
+export const MY_SIDEBAR_TOKEN = new UmbModalToken<MySidebarData, MySidebarValue>('example.ui.modals.sidebar', {
     modal: {
         type: 'sidebar',
         size: 'large'
