@@ -30,13 +30,13 @@ export const manifests: Array<ManifestTypes> = [
   },
   {
     "type": "dashboard",
-    "alias": "example.ui.dashboard.dialogs",
-    "name": "Dialogs",
-		"element": () => import("./scripts/dashboards/custom-dialogs-dashboard.ts"),
+    "alias": "example.ui.dashboard.modals",
+    "name": "Modals",
+		"element": () => import("./scripts/dashboards/custom-modals-dashboard.ts"),
     "weight": -1,
     "meta": {
-      "label": "Dialogs",
-      "pathname": "dialogs"
+      "label": "Modals",
+      "pathname": "modals"
     },
     "conditions": [
       {
@@ -64,9 +64,15 @@ export const manifests: Array<ManifestTypes> = [
   },
   {
     "type": "modal",
-    "alias": "My.Modal",
-    "name": "My Modal",
-    "element":  () => import("./scripts/dialogs/custom-modal.ts"),
+    "alias": "My.Dialog",
+    "name": "My Dialog",
+    "element":  () => import("./scripts/modals/custom-dialog.ts"),
+  },
+  {
+    "type": "modal",
+    "alias": "My.Sidebar",
+    "name": "My Sidebar Modal",
+    "element":  () => import("./scripts/modals/custom-sidebar.ts"),
   }
 	// ... insert as many manifests as you like
 

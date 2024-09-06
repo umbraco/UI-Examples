@@ -1,10 +1,10 @@
 import { html, LitElement, property, customElement } from "@umbraco-cms/backoffice/external/lit";
 import { UmbElementMixin } from "@umbraco-cms/backoffice/element-api";
 import type { UmbModalContext } from "@umbraco-cms/backoffice/modal";
-import type { MyModalData, MyModalValue } from "./custom-modal.token.ts";
+import type { MyModalData, MyModalValue } from "./custom-dialog.token.ts";
 import { UmbModalExtensionElement } from "@umbraco-cms/backoffice/extension-registry";
 
-@customElement('my-dialog')
+@customElement('custom-dialog')
 export default class MyDialogElement
     extends UmbElementMixin(LitElement)
     implements UmbModalExtensionElement<MyModalData, MyModalValue> {
@@ -16,7 +16,7 @@ export default class MyDialogElement
     data?: MyModalData;
 
     private _handleCancel() {
-        this.modalContext?.submit();
+        this.modalContext?.reject();
     }
 
     private _handleSubmit() {
@@ -26,11 +26,16 @@ export default class MyDialogElement
 
     render() {
         return html`
-            <div>
-                <h1>${this.modalContext?.data.headline ?? "Default headline"}</h1>
-                <button @click=${this._handleCancel}>Cancel</button>
-                <button @click=${this._handleSubmit}>Submit</button>
-            </div>
+            <uui-dialog>
+                <uui-dialog-layout>
+                    <span slot="headline">
+                    <uui-icon name="code"></uui-icon> ${this.modalContext?.data.headline ?? "Default headline"}
+                    </span>
+                    <p>This is using a <b>slot</b> for the headline.</p>
+                    <uui-button slot="actions"  @click=${this._handleCancel}>Cancel</uui-button>
+                    <uui-button slot="actions" look="primary" color="positive" @click=${this._handleSubmit}>Submit</uui-button>
+                </uui-dialog-layout>
+            </uui-dialog>
         `;
     }
 }
