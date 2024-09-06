@@ -29,12 +29,12 @@ export default class UieWelcomeDashboard extends LitElement {
                 <div>
                     <h5 class="title">UI Examples<br/><span class="sub-header">Using the new backoffice</span></h5>
                 </div>
-                <div>
-                    <uui-button href="https://uui.umbraco.com/"  target="_blank" look="primary" color="positive">
-                        <uui-badge slot="extra" label="A11Y label">!</uui-badge>
-                        <uui-icon name="info"></uui-icon>
-                        View the Storybook library</uui-button>
-                </div>
+            </div>
+            <div slot="header-actions">
+                <uui-button href="https://uui.umbraco.com/"  target="_blank" look="primary" color="positive">
+                    <uui-badge slot="extra" label="A11Y label">!</uui-badge>
+                    <uui-icon name="info"></uui-icon>
+                    View the Storybook library</uui-button>
             </div>
             <slot>
                 <p>This package is developed and maintained by the Umbraco Package Team. Contributions are welcome: <a href="https://github.com/umbraco/UI-Examples" target="_blank">visit the GitHub repository</a>.</p>

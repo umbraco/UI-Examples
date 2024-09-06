@@ -17,18 +17,18 @@ export default class UieBoxLayoutSection extends LitElement {
   count = 0
 
   render() {
-      return html`
+    return html`
         <uui-box>
             <div slot="header" class="header-bar">
                 <div>
                     <h5 class="title">Box<br/><span class="sub-header">A box for grouping elements</span></h5>
                 </div>
-                <div>
-                    <uui-button href="https://apidocs.umbraco.com/v14/ui/?path=/docs/uui_layout-box--docs"  target="_blank" look="primary" color="positive">
-                        <uui-badge slot="extra" label="A11Y label">!</uui-badge>
-                        <uui-icon name="book-alt"></uui-icon>
-                        View the Storybook library</uui-button>
-                </div>
+            </div>
+            <div slot="header-actions">
+              <uui-button href="https://apidocs.umbraco.com/v14/ui/?path=/docs/uui_uui-box--docs"  target="_blank" look="primary" color="positive">
+                  <uui-badge slot="extra" label="A11Y label">!</uui-badge>
+                  <uui-icon name="folder"></uui-icon>
+                  View the Storybook library</uui-button>
             </div>
             <slot>
                 <p>This package is developed and maintained by the Umbraco Package Team. Contributions are welcome: <a href="https://github.com/umbraco/UI-Examples" target="_blank">visit the GitHub repository</a>.</p>
@@ -84,6 +84,6 @@ export default class UieBoxLayoutSection extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-      'uie-box-layout-section': UieBoxLayoutSection
+    'uie-box-layout-section': UieBoxLayoutSection
   }
 }
