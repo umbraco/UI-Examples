@@ -21,7 +21,7 @@ export default class MySidebarElement
     }
 
     private _handleSubmit() {
-        this.modalContext?.updateValue({ myData: "hello world", myText: this.textInput });
+        this.modalContext?.updateValue({ myData: "I am added in code!", myText: this.textInput });
         this.modalContext?.submit();
     }
 
@@ -49,6 +49,8 @@ export default class MySidebarElement
                         class="element"
                         label="text input"
                         .value=${this.textInput || ""}
+                        placeholder="This text will be passed back to the opener!"
+                        width="100%"
                         @input=${this.#onInput}
                     >
                     </uui-input>

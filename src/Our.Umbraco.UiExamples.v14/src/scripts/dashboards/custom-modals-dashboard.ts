@@ -32,7 +32,10 @@ export default class UieCustomDialogsDashboard extends UmbElementMixin(LitElemen
 
   render() {
     return html`
-        <uui-box>
+        <umb-code-block copy="true">Your last action was: <b>${this.message ?? "Nothing clicked yet..."}</b>
+With data: ${this.returnData ?? "{}"}</umb-code-block>
+
+        <uui-box style="margin-top:20px;">
             <div slot="header" class="header-bar">
                 <div>
                     <h5 class="title">Modals<br/><span class="sub-header">Modals are the mechanism to display content on-top of the current display.</span></h5>
@@ -40,24 +43,47 @@ export default class UieCustomDialogsDashboard extends UmbElementMixin(LitElemen
             </div>
             <div slot="header-actions">
                 <uui-button href="https://apidocs.umbraco.com/v14/ui/?path=/docs/uui_layout-modals-documentation--docs"  target="_blank" look="primary" color="positive">
-                    <uui-badge slot="extra" label="A11Y label">!</uui-badge>
                     <uui-icon name="info"></uui-icon>
                     View the Storybook library</uui-button>
+                <uui-button href="https://docs.umbraco.com/umbraco-cms/customizing/extending-overview/extension-types/modals/confirm-dialog"  target="_blank" look="primary" color="positive">
+                    <uui-icon name="info"></uui-icon>
+                    View the dialog tutorial</uui-button>
             </div>
             <slot>
-                <p>The overlay service has a confirm option built, in with this you can quickly create a confirm dialog, to present your users with a simple option. The term "Modal" covers both types of pop-overs; <b>Dialogs</b> and <b>Sidebars</b>.</p>
-                <!-- https://docs.umbraco.com/umbraco-cms/customizing/extending-overview/extension-types/modals/confirm-dialog -->
-                <p>You can checkout all of the prebuilt modals by checking the <a href="https://github.com/umbraco/Umbraco.CMS.Backoffice/tree/849368269126fa816aca394e8e41ef1703cfe0c2/src/packages/core/modal/token" target="_blank">GitHub Source</a></p>
+                <p>The term "Modal" covers both types of pop-overs; <b>Dialogs</b> and <b>Sidebars</b>. You can see examples below that define how you would open an Umbraco pre-built modal.</p>
+                
+                <p>Modals come in two parts; the element and the token.<br/>
+                  The <b>token</b> is responsible for triggering the modal to be displayed using the <a href="https://docs.umbraco.com/umbraco-cms/customizing/extending-overview/extension-types/modals#basic-usage" target="_blank">ModalManagerContext</a><br/>
+                  The <b>element</b> is the UI components and is responsible for showing the HTML on screen, along with any in-modal functionality
+                </p>
+                
+                <p>You can see all of the prebuilt modals by checking the <a href="https://github.com/umbraco/Umbraco.CMS.Backoffice/tree/849368269126fa816aca394e8e41ef1703cfe0c2/src/packages/core/modal/token" target="_blank">GitHub Source</a></p>
 
                 <uui-button look="primary" color="default" @click=${this._openConfirmationModal}>Confirm Dialog</uui-button>
                 <uui-button look="primary" color="danger" @click=${this._openDebugDialog}>Debug Sidebar</uui-button>
                 <uui-button look="secondary" color="danger" @click=${this._openCodeDialog}>Code Editor Sidebar</uui-button>
+
+                <p></p>
+                <p></code></p>
+
+            </slot>
+        </uui-box>
+        <uui-box style="margin-top:20px;">
+            <div slot="header" class="header-bar">
+                <div>
+                    <h5 class="title">Custom Modals</h5>
+                </div>
+            </div>
+            <div slot="header-actions">
+                <uui-button href="https://docs.umbraco.com/umbraco-cms/customizing/extending-overview/extension-types/modals/custom-modals"  target="_blank" look="primary" color="positive">
+                    <uui-icon name="info"></uui-icon>
+                    View the custom modal tutorial</uui-button>
+            </div>
+            <slot>
+                <p>When you have specific requirements and the inbuilt modals don't suit your needs, you can create your own custom modal and put anything you want in there.</p>
+
                 <uui-button look="primary" color="warning" @click=${this._openCustomSidebar}>Custom Sidebar</uui-button>
                 <uui-button look="outline" color="positive" @click=${this._openCustomModal}>Custom Dialog</uui-button>
-
-                <p>Your last action was: <b>${this.message ?? "Nothing clicked yet..."}</b></p>
-                <p>With data: <code>${this.returnData ?? "{}"}</code></p>
-
             </slot>
         </uui-box>`
   }
@@ -71,11 +97,10 @@ export default class UieCustomDialogsDashboard extends UmbElementMixin(LitElemen
     const ctx = this.#modalManagerContext?.open(this, UMB_CODE_EDITOR_MODAL, {
       data: {
         headline:"text",
-        content:"Enter something",
+        content:"Enter something and it will be sent back from the modal",
         language:"javascript"
       },
     });
-
     ctx?.onSubmit().then((e) => {
       this._handleSubmit(true, JSON.stringify(e));
     }).catch(() => {
