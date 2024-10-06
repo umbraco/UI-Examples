@@ -19,7 +19,9 @@ Examples include:
 > This repository contains examples of the current backoffice UI, which are not (yet) based on the new [Umbraco UI Library](https://github.com/umbraco/Umbraco.UI).
 
 ## Installing the Package 
-Umbraco v13: install the NuGet package using `dotnet add package Our.Umbraco.UiExamples` *or* manually adding a `PackageReference` to your project file.
+Umbraco v8: the UI Examples package can be added via the Package section of the backoffice *or* using NuGet (e.g. from the Package Manager Console: `Install-Package Our.Umbraco.UiExamples`).
+
+Umbraco v9: install the NuGet package using `dotnet add package Our.Umbraco.UiExamples` *or* manually adding a `PackageReference` to your project file.
 
 ## Contributing
 Contributions are welcome! Please refer to the [issues list](./issues) for ideas of where help is needed.
