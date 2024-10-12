@@ -20,10 +20,10 @@ export default class UieBoxDashboard extends LitElement {
         return html`
             <uui-box class="red-outline" .headline="test">
                 <h3 slot="headline" class="blue-outline spacing headline">
-                    The uui-box element
+                    this is a headline
                 </h3>
                 <div slot="header" class="header purple-outline spacing">
-                    Other header content
+                    this is a header
                 </div>
                 <div class="header-actions pink-outline" slot="header-actions">
                     <uui-button href="https://uui.umbraco.com/?path=/docs/uui-box--docs" target="_blank" look="primary"
@@ -38,7 +38,7 @@ export default class UieBoxDashboard extends LitElement {
                         <umb-code-block language="HTML">${this.renderBoxCodeExample()}</umb-code-block>
                         <div>
                             <p>
-                                The uui-box has largely replaces the umb-box element form previous versions of Umbraco.
+                                The uui-box has largely replaces the umb-box element from previous versions of Umbraco.
                             </p>
                             <p>
                                 The <span class="red">uui-box</span> element (outlined in red) is used as a wrapper for
@@ -81,19 +81,21 @@ export default class UieBoxDashboard extends LitElement {
     
     renderHeaderSection(){
         return html`
-        <uui-box>
-            <h3 slot="header">
-                The uui-box header slot
-            </h3>
-            <slot>
-                <div>
-                    <umb-code-block language="HTML">${this.renderHeaderSlotCodeExample()}</umb-code-block>
-                    <p>
-                        The header slot is optional and is used to display additional content in the header of the box. 
-                    </p>
-                </div>
-            </slot>
-        </uui-box>
+            <uui-box>
+                
+                <h3 slot="headline">
+                    The uui-box header slot
+                </h3>
+                <slot>
+                    <div>
+                        <umb-code-block language="HTML">${this.renderHeaderSlotCodeExample()}</umb-code-block>
+                        <p>
+                            The header slot is optional and is used to display additional content in the header of the
+                            box.
+                        </p>
+                    </div>
+                </slot>
+            </uui-box>
         `;
     }
     
@@ -119,7 +121,7 @@ export default class UieBoxDashboard extends LitElement {
         return html`
 &lt;uui-box&gt;
     &lt;h3 slot=&quot;headline&quot;&gt;
-        this is a title
+        this is a headline
     &lt;/h3&gt;
     &lt;div slot=&quot;header&quot;&gt;
         this is a header
@@ -164,9 +166,9 @@ export default class UieBoxDashboard extends LitElement {
 
     renderHeaderSlotCodeExample() {
         return html`
-&lt;h3 slot=&quot;header&quot;&gt;
+&lt;div slot=&quot;header&quot;&gt;
     This is a header
-&lt;/h3&gt;
+&lt;/div&gt;
         `
     }
 
