@@ -41,6 +41,12 @@ export const manifests: Array<ManifestTypes> = [
     "js": () => import("./scripts/box/manifest.ts")
   },
   {
+    "type":"bundle",
+    "alias":"example.ui.dialogs",
+    "name":"Example.UI - Dialogs",
+    "js":() => import("./scripts/dialogs/manifest.ts")
+  },
+  {
     "type": "sectionView",
     "alias": "example.ui.dashboard.section.boxlayout",
     "element": () => import("./scripts/sections/box-layout-section.ts"),
