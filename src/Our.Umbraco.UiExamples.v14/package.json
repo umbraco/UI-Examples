@@ -1,7 +1,5 @@
 {
-  "name": "our-umbraco-uiexamples-v14",
   "private": true,
-  "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "tsc && vite build --watch",
