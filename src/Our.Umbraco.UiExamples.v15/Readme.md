@@ -9,11 +9,11 @@ go into `src`
 run `npm ci`  
 run `npm run dev`  
 
-This will build the typescript, output it into the folder within the Umbraco 14 website for use in there, more specifically: `/samples/Umbraco14.Website/App_Plugins/Example.UI/scripts`.
+This will build the typescript, output it into the folder within the Umbraco 14 website for use in there, more specifically: `/samples/Umbraco15.Website/App_Plugins/Example.UI/scripts`.
 
 ## Running the Umbraco14 website
 
-In a separate terminal window, to run the umbraco project, open the path /samples/Umbraco14.Website/
+In a separate terminal window, to run the umbraco project, open the path /samples/Umbraco15.Website/
 
 run `dotnet run`
 

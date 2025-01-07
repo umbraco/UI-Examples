@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-	  <TargetFramework>net6.0</TargetFramework>
+	  <TargetFramework>net8.0</TargetFramework>
   </PropertyGroup>
 
 	<!-- NuGet package info -->
@@ -50,8 +50,8 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Umbraco.Cms.Web.Website" Version="9.0.0" />
-		<PackageReference Include="Umbraco.Cms.Web.BackOffice" Version="9.0.0" />
+		<PackageReference Include="Umbraco.Cms.Web.Website" Version="13.5.2" />
+		<PackageReference Include="Umbraco.Cms.Web.BackOffice" Version="13.5.2" />
 	</ItemGroup>
 
 	<Target Name="RemoveLuceneAnalyzer" BeforeTargets="CoreCompile">

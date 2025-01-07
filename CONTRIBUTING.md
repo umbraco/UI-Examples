@@ -15,7 +15,7 @@ Steps to get the test sites working:
   - Username: uiexamples@example.com
   - Password: 1234567890
   
-For v14 you will also need to run `npm ci` within the `src\Our.Umbraco.UiExamples.v14` directory, and then `npm run dev` to start the development batch job. This will copy the files from the package into `samples\Umbraco14.Website` ready to see in the backoffice.
+For v115 you will also need to run `npm ci` within the `src\Our.Umbraco.UiExamples.v15` directory, and then `npm run dev` to start the development batch job. This will copy the files from the package into `samples\Umbraco15.Website` ready to see in the backoffice.
 
 ## Making changes
 The files you will be working on are in the `App_Plugins` folder in the main `Our.Umbraco.UiExamples` project. Changed files need to be copied into the test websites so you can confirm they work, which is automatically done when building the test websites (using a MSBuild target).

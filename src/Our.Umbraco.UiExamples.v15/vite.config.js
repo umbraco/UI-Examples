@@ -9,7 +9,7 @@ export default defineConfig({
             entry: ["src/dashboards/welcome-dashboard.ts"], // your web component source file
             formats: ["es"],
         },
-        outDir: "../../samples/Umbraco14.Website/App_Plugins/Example.UI", // your web component will be saved in this location
+        outDir: "../../samples/Umbraco15.Website/App_Plugins/Example.UI", // your web component will be saved in this location
         sourcemap: true,
         rollupOptions: {
             input: Object.fromEntries(
