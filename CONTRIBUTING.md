@@ -3,10 +3,10 @@ If you want to add more UI examples to this package, please [raise an issue](./i
 
 ## Working locally
 Open the solution file `UI Examples.sln` in Visual Studio. You will see three projects:
-- `Our.Umbraco.UiExamples` is the main project containing the files that you will be working with
-- `Umbraco8.Website` is an Umbraco v8 test site
-- `Umbraco9.Website` is an Umbraco v9 test site
-- `Umbraco14.Website` is an Umbraco v14 test site
+- `Our.Umbraco.UiExamples.v13` is the main project containing the files that you will be working with for v13
+- `Our.Umbraco.UiExamples.v15` is the main project containing the files that you will be working with for v15
+- `Umbraco13.Website` is an Umbraco v13 LTS test site
+- `Umbraco15.Website` is an Umbraco v15 STS test site
 
 Steps to get the test sites working:
 - Build the solution

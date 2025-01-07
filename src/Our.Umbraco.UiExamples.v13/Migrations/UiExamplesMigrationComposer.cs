@@ -2,8 +2,7 @@
 using Umbraco.Cms.Core.DependencyInjection;
 using Umbraco.Cms.Core.Notifications;
 
-
-namespace Our.Umbraco.UiExamples.Migrations
+namespace Our.Umbraco.UiExamples.v13.Migrations
 {
     public class UiExamplesMigrationComposer : IComposer
     {

@@ -1,6 +1,6 @@
 ﻿using Umbraco.Cms.Core.Packaging;
 
-namespace Our.Umbraco.UiExamples.Migrations;
+namespace Our.Umbraco.UiExamples.v15.Migrations;
 
 internal sealed class UiExamplesMigrationPlan : PackageMigrationPlan
 {

@@ -6,7 +6,7 @@
 
 	<!-- NuGet package info -->
 	<PropertyGroup>
-		<PackageId>Our.Umbraco.UiExamples</PackageId>
+		<PackageId>Our.Umbraco.UiExamples.v13</PackageId>
 
 		<PackageIconUrl></PackageIconUrl>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>

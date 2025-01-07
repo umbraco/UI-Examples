@@ -2,7 +2,7 @@
 <umbPackage>
 	<info>
 		<package>
-			<name>Our.Umbraco.UIExamples</name>
+			<name>Our.Umbraco.UIExamples.v13</name>
 			<licence url="https://opensource.org/licenses/MIT">MIT</licence>
 			<url>https://our.umbraco.com/packages/developer-tools/ui-examples/</url>
 			<requirements type="strict">

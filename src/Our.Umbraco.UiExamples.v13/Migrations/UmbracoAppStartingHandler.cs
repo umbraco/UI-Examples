@@ -5,7 +5,7 @@ using Umbraco.Cms.Core.Scoping;
 using Umbraco.Cms.Core.Services;
 using Umbraco.Cms.Infrastructure.Migrations.Upgrade;
 
-namespace Our.Umbraco.UiExamples.Migrations
+namespace Our.Umbraco.UiExamples.v13.Migrations
 {
     public class UmbracoAppStartingHandler : INotificationHandler<UmbracoApplicationStartingNotification>
     {

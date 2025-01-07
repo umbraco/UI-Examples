@@ -3,7 +3,7 @@ using Umbraco.Cms.Core.Services;
 using Umbraco.Cms.Infrastructure.Migrations;
 using Umbraco.Cms.Infrastructure.Scoping;
 
-namespace Our.Umbraco.UiExamples.Migrations;
+namespace Our.Umbraco.UiExamples.v15.Migrations;
 
 internal sealed class AddSectionToAdminsMigration : MigrationBase
 {

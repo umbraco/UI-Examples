@@ -4,8 +4,7 @@ using Umbraco.Cms.Core.Services;
 using Umbraco.Cms.Core.Web;
 using Umbraco.Cms.Infrastructure.Migrations;
 
-
-namespace Our.Umbraco.UiExamples.Migrations
+namespace Our.Umbraco.UiExamples.v13.Migrations
 {
     public class AddSectionToAdminsMigration : MigrationBase
     {

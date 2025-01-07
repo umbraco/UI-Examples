@@ -1,6 +1,6 @@
 ﻿using Umbraco.Cms.Infrastructure.Migrations;
 
-namespace Our.Umbraco.UiExamples.Migrations
+namespace Our.Umbraco.UiExamples.v13.Migrations
 {
     public class UiExamplesMigrationPlan : MigrationPlan
     {
