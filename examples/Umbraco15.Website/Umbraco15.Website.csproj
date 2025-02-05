@@ -7,6 +7,9 @@
 
 	<ItemGroup>
 		<PackageReference Include="Umbraco.Cms" Version="15.1.1" />
+	</ItemGroup>
+
+	<ItemGroup>
 		<ProjectReference Include="..\..\src\Our.Umbraco.UiExamples.v15\Our.Umbraco.UiExamples.v15.csproj" />
 	</ItemGroup>
 
