@@ -1,8 +1,7 @@
 import { html, LitElement, property, customElement } from "@umbraco-cms/backoffice/external/lit";
 import { UmbElementMixin } from "@umbraco-cms/backoffice/element-api";
-import type { UmbModalContext } from "@umbraco-cms/backoffice/modal";
+import type { UmbModalContext, UmbModalExtensionElement } from "@umbraco-cms/backoffice/modal";
 import type { MySidebarData, MySidebarValue } from "./custom-sidebar.token.ts";
-import { UmbModalExtensionElement } from "@umbraco-cms/backoffice/extension-registry";
 import { UmbPropertyValueChangeEvent } from "@umbraco-cms/backoffice/property-editor";
 
 @customElement('my-sidebar')
@@ -15,7 +14,7 @@ export default class MySidebarElement
 
     @property({ attribute: false })
     data?: MySidebarData;
-    
+
     private _handleCancel() {
         this.modalContext?.reject();
     }
@@ -27,15 +26,15 @@ export default class MySidebarElement
 
     @property({ type: String })
     public textInput = "";
-    
+
     #onInput(e: InputEvent) {
         this.textInput = (e.target as HTMLInputElement).value;
         this.#dispatchChangeEvent();
-      }
-    
-      #dispatchChangeEvent() {
+    }
+
+    #dispatchChangeEvent() {
         this.dispatchEvent(new UmbPropertyValueChangeEvent());
-      }
+    }
 
     render() {
         return html`

@@ -2,8 +2,10 @@ import { LitElement, css, html } from 'lit'
 import { customElement, property } from 'lit/decorators.js'
 import { MY_DIALOG_TOKEN } from './custom-dialog.token';
 import { MY_SIDEBAR_TOKEN } from './custom-sidebar.token';
-import { UMB_MODAL_MANAGER_CONTEXT, UMB_CONTEXT_DEBUGGER_MODAL, UMB_CONFIRM_MODAL, UMB_CODE_EDITOR_MODAL } from '@umbraco-cms/backoffice/modal';
+import { UMB_MODAL_MANAGER_CONTEXT, UMB_CONFIRM_MODAL } from '@umbraco-cms/backoffice/modal';
 import { UmbElementMixin } from '@umbraco-cms/backoffice/element-api';
+import { UMB_CONTEXT_DEBUGGER_MODAL } from '@umbraco-cms/backoffice/debug';
+import { UMB_CODE_EDITOR_MODAL } from '@umbraco-cms/backoffice/code-editor';
 
 /**
  * An example element.
@@ -13,27 +15,25 @@ import { UmbElementMixin } from '@umbraco-cms/backoffice/element-api';
  */
 @customElement('uie-custom-modals-dashboard')
 export default class UieCustomDialogsDashboard extends UmbElementMixin(LitElement) {
-  #modalManagerContext?: typeof UMB_MODAL_MANAGER_CONTEXT.TYPE;
+    #modalManagerContext?: typeof UMB_MODAL_MANAGER_CONTEXT.TYPE;
 
-  constructor() {
-    super();
-    this.consumeContext(UMB_MODAL_MANAGER_CONTEXT, (instance) => {
-      this.#modalManagerContext = instance;
-      // modalManagerContext is now ready to be used.
-    });
-  }
+    constructor() {
+        super();
+        this.consumeContext(UMB_MODAL_MANAGER_CONTEXT, (instance) => {
+            this.#modalManagerContext = instance;
+            // modalManagerContext is now ready to be used.
+        });
+    }
 
+    @property({ attribute: false })
+    message?: string;
 
-  @property({ attribute: false })
-  message?: string;
+    @property({ attribute: false })
+    returnData?: string;
 
-  @property({ attribute: false })
-  returnData?: string;
-
-  render() {
-    return html`
-        <umb-code-block copy="true">Your last action was: <b>${this.message ?? "Nothing clicked yet..."}</b>
-With data: ${this.returnData ?? "{}"}</umb-code-block>
+    render() {
+        return html`
+        <umb-code-block copy="true">Your last action was: <b>${this.message ?? "Nothing clicked yet..."}</b> with data: ${this.returnData ?? "{}"}</umb-code-block>
 
         <uui-box style="margin-top:20px;">
             <div slot="header" class="header-bar">
@@ -86,140 +86,149 @@ With data: ${this.returnData ?? "{}"}</umb-code-block>
                 <uui-button look="outline" color="positive" @click=${this._openCustomModal}>Custom Dialog</uui-button>
             </slot>
         </uui-box>`
-  }
-
-  private _handleSubmit(isPositive?: boolean, data?: string) {
-    this.message = isPositive ? "Submitted" : "Cancelled";
-    this.returnData = data;
-  }
-
-  private _openCodeDialog() {
-    const ctx = this.#modalManagerContext?.open(this, UMB_CODE_EDITOR_MODAL, {
-      data: {
-        headline:"text",
-        content:"Enter something and it will be sent back from the modal",
-        language:"javascript"
-      },
-    });
-    ctx?.onSubmit().then((e) => {
-      this._handleSubmit(true, JSON.stringify(e));
-    }).catch(() => {
-      this._handleSubmit(false);
-    })
-  }
-  private _openDebugDialog() {
-    const ctx = this.#modalManagerContext?.open(this, UMB_CONTEXT_DEBUGGER_MODAL, {
-      data: {
-        content:"I am a debugger modal!"
-      },
-    });
-
-    ctx?.onSubmit().then((e) => {
-      this._handleSubmit(true, JSON.stringify(e));
-    }).catch(() => {
-      this._handleSubmit(false);
-    })
-  }
-
-  private _openConfirmationModal() {
-    const ctx = this.#modalManagerContext?.open(this, UMB_CONFIRM_MODAL, {
-      data: {
-        headline: "This is a confirmation modal",
-        content: "Word up modal",
-        cancelLabel: 'Cancel',
-        confirmLabel: 'Confirm',
-        color: 'positive' // You can change the colour of the submit button (but not cancel)!
-      },
-    });
-
-    ctx?.onSubmit().then((e) => {
-      this._handleSubmit(true, JSON.stringify(e));
-    }).catch(() => {
-      this._handleSubmit(false);
-    })
-  }
-
-  private _openCustomModal() {
-    const ctx = this.#modalManagerContext?.open(this, MY_DIALOG_TOKEN, {
-      data: {
-        headline: "My modal headline",
-      }
-    });
-
-    ctx?.onSubmit().then((e) => {
-      console.log("Submitted", e);
-      this._handleSubmit(true, JSON.stringify(e));
-    }).catch(() => {
-      this._handleSubmit(false);
-    })
-  }
-  private _openCustomSidebar() {
-    const ctx = this.#modalManagerContext?.open(this, MY_SIDEBAR_TOKEN, {
-      data: {
-        headline: "My sidebar headline",
-      }
-    });
-
-    ctx?.onSubmit().then((e) => {
-      console.log("Submitted", e);
-      this._handleSubmit(true, JSON.stringify(e));
-    }).catch(() => {
-      this._handleSubmit(false);
-    })
-  }
-
-  static styles = css`
-    :host {
-      padding: var(--uui-size-layout-1);
-      display:block;
     }
 
-    ::slotted(h1) {
-      font-size: 3.2em;
-      line-height: 1.1;
+    private _handleSubmit(isPositive?: boolean, data?: string) {
+        this.message = isPositive ? "Submitted" : "Cancelled";
+        this.returnData = data;
     }
-    .header-bar {
-        
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
+
+    private _openCodeDialog() {
+        const ctx = this.#modalManagerContext?.open(this, UMB_CODE_EDITOR_MODAL, {
+            data: {
+                headline: "text",
+                content: "Enter something and it will be sent back from the modal",
+                language: "javascript"
+            },
+        });
+        ctx?.onSubmit().then((e) => {
+            this._handleSubmit(true, JSON.stringify(e));
+        }).catch(() => {
+            this._handleSubmit(false);
+        })
     }
-    .title {
-        font-size: 15px;
-    color: #000;
-    font-weight: 700;
-    margin:0;
+
+    private _openDebugDialog() {
+        const ctx = this.#modalManagerContext?.open(this, UMB_CONTEXT_DEBUGGER_MODAL, {
+            data: {
+                content: "I am a debugger modal!"
+            },
+        });
+
+        ctx?.onSubmit().then((e) => {
+            this._handleSubmit(true, JSON.stringify(e));
+        }).catch(() => {
+            this._handleSubmit(false);
+        })
     }
-    a {
-      font-weight: 500;
-      color: #646cff;
-      text-decoration: inherit;
+
+    private _openConfirmationModal() {
+        const ctx = this.#modalManagerContext?.open(this, UMB_CONFIRM_MODAL, {
+            data: {
+                headline: "This is a confirmation modal",
+                content: "Word up modal",
+                cancelLabel: 'Cancel',
+                confirmLabel: 'Confirm',
+                color: 'positive' // You can change the colour of the submit button (but not cancel)!
+            },
+        });
+
+        ctx?.onSubmit().then((e) => {
+            this._handleSubmit(true, JSON.stringify(e));
+        }).catch(() => {
+            this._handleSubmit(false);
+        })
     }
-    a:hover {
-      color: #535bf2;
+
+    private _openCustomModal() {
+        const ctx = this.#modalManagerContext?.open(this, MY_DIALOG_TOKEN, {
+            data: {
+                headline: "My modal headline",
+            }
+        });
+
+        ctx?.onSubmit().then((e) => {
+            console.log("Submitted", e);
+            this._handleSubmit(true, JSON.stringify(e));
+        }).catch(() => {
+            this._handleSubmit(false);
+        })
     }
-    .sub-header {
-        font-size: 13px;
-        color: #515054;
-        line-height: 1.6em;
-        margin-top: 1px;
+
+    private _openCustomSidebar() {
+        const ctx = this.#modalManagerContext?.open(this, MY_SIDEBAR_TOKEN, {
+            data: {
+                headline: "My sidebar headline",
+            }
+        });
+
+        ctx?.onSubmit().then((e) => {
+            console.log("Submitted", e);
+            this._handleSubmit(true, JSON.stringify(e));
+        }).catch(() => {
+            this._handleSubmit(false);
+        })
     }
-    p:first-child {
-        margin-top:0;
-    }
-    @media (prefers-color-scheme: light) {
-      a:hover {
-        color: #747bff;
-      }
-      button {
-        background-color: #f9f9f9;
-      }
-    }
-  `
+
+    static styles = css`
+        :host {
+            padding: var(--uui-size-layout-1);
+            display:block;
+        }
+
+        ::slotted(h1) {
+            font-size: 3.2em;
+            line-height: 1.1;
+        }
+
+        .header-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .title {
+            font-size: 15px;
+            color: #000;
+            font-weight: 700;
+            margin:0;
+        }
+
+        a {
+            font-weight: 500;
+            color: #646cff;
+            text-decoration: inherit;
+        }
+
+        a:hover {
+            color: #535bf2;
+        }
+
+        .sub-header {
+            font-size: 13px;
+            color: #515054;
+            line-height: 1.6em;
+            margin-top: 1px;
+        }
+
+        p:first-child {
+            margin-top:0;
+        }
+
+        @media (prefers-color-scheme: light) {
+            a:hover {
+                color: #747bff;
+            }
+
+            button {
+                background-color: #f9f9f9;
+            }
+        }
+    `
 }
 
 declare global {
-  interface HTMLElementTagNameMap {
-    'uie-custom-dialogs-dashboard': UieCustomDialogsDashboard
-  }
+    interface HTMLElementTagNameMap {
+        'uie-custom-dialogs-dashboard': UieCustomDialogsDashboard
+    }
 }

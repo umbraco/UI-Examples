@@ -9,15 +9,14 @@ import { customElement, state } from 'lit/decorators.js'
  */
 @customElement('uie-box-layout-section')
 export default class UieBoxLayoutSection extends LitElement {
+    /**
+     * The number of times the button has been clicked.
+     */
+    @state()
+    count = 0
 
-  /**
-   * The number of times the button has been clicked.
-   */
-  @state()
-  count = 0
-
-  render() {
-    return html`
+    render() {
+        return html`
         <uui-box>
             <div slot="header" class="header-bar">
                 <div>
@@ -38,52 +37,57 @@ export default class UieBoxLayoutSection extends LitElement {
             </slot>
         </uui-box>
     `
-  }
-
-  static styles = css`
-    :host {
-      padding: var(--uui-size-layout-1);
-      display:block;
     }
 
-    ::slotted(h1) {
-      font-size: 3.2em;
-      line-height: 1.1;
-    }
-    .header-bar {
-        
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-    }
-    .title {
-        font-size: 15px;
-    color: #000;
-    font-weight: 700;
-    margin:0;
-    }
-    .sub-header {
-        font-size: 13px;
-        color: #515054;
-        line-height: 1.6em;
-        margin-top: 1px;
-    }
-    p:first-child {
-        margin-top:0;
-    }
-    @media (prefers-color-scheme: light) {
-      a:hover {
-        color: #747bff;
-      }
-      button {
-        background-color: #f9f9f9;
-      }
-    }
-  `
+    static styles = css`
+        :host {
+            padding: var(--uui-size-layout-1);
+            display:block;
+        }
+
+        ::slotted(h1) {
+            font-size: 3.2em;
+            line-height: 1.1;
+        }
+
+        .header-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .title {
+            font-size: 15px;
+            color: #000;
+            font-weight: 700;
+            margin: 0;
+        }
+
+        .sub-header {
+            font-size: 13px;
+            color: #515054;
+            line-height: 1.6em;
+            margin-top: 1px;
+        }
+
+        p:first-child {
+            margin-top:0;
+        }
+
+        @media (prefers-color-scheme: light) {
+            a:hover {
+                color: #747bff;
+            }
+
+            button {
+                background-color: #f9f9f9;
+            }
+        }
+    `
 }
 
 declare global {
-  interface HTMLElementTagNameMap {
-    'uie-box-layout-section': UieBoxLayoutSection
-  }
+    interface HTMLElementTagNameMap {
+        'uie-box-layout-section': UieBoxLayoutSection
+    }
 }

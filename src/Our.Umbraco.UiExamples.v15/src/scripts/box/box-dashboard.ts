@@ -1,5 +1,5 @@
-import {LitElement, css, html} from 'lit'
-import {customElement} from 'lit/decorators.js'
+import { LitElement, css, html } from 'lit'
+import { customElement } from 'lit/decorators.js'
 
 
 @customElement('uie-box-dashboard')
@@ -78,8 +78,8 @@ export default class UieBoxDashboard extends LitElement {
             </uui-box>
         `;
     }
-    
-    renderHeaderSection(){
+
+    renderHeaderSection() {
         return html`
             <uui-box>
                 
@@ -98,8 +98,8 @@ export default class UieBoxDashboard extends LitElement {
             </uui-box>
         `;
     }
-    
-    renderHeaderActionsSection(){
+
+    renderHeaderActionsSection() {
         return html`
         <uui-box>
             <h3 slot="headline">
@@ -149,7 +149,7 @@ export default class UieBoxDashboard extends LitElement {
 &lt;/uui-box&gt;
         `
     }
-    
+
     renderHeaderActionsSlotCodeExample() {
         return html`
 &lt;div slot=&quot;header-actions&quot;&gt;

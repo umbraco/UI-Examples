@@ -9,21 +9,21 @@ import { customElement, property, state } from 'lit/decorators.js'
  */
 @customElement('uie-welcome-dashboard')
 export default class UieWelcomeDashboard extends LitElement {
-  /**
-   * Copy for the read the docs hint.
-   */
-  @property()
+    /**
+     * Copy for the read the docs hint.
+     */
+    @property()
     docsHint = 'Click on the Vite and Lit logos to learn more'
 
 
-  /**
-   * The number of times the button has been clicked.
-   */
-  @state()
-  count = 0
+    /**
+     * The number of times the button has been clicked.
+     */
+    @state()
+    count = 0
 
-  render() {
-      return html`
+    render() {
+        return html`
         <uui-box>
             <div slot="header" class="header-bar">
                 <div>
@@ -44,9 +44,9 @@ export default class UieWelcomeDashboard extends LitElement {
             </slot>
         </uui-box>
     `
-  }
+    }
 
-  static styles = css`
+    static styles = css`
     :host {
       padding: var(--uui-size-layout-1);
       display:block;
@@ -89,7 +89,7 @@ export default class UieWelcomeDashboard extends LitElement {
 }
 
 declare global {
-  interface HTMLElementTagNameMap {
-    'uie-welcome-dashboard': UieWelcomeDashboard
-  }
+    interface HTMLElementTagNameMap {
+        'uie-welcome-dashboard': UieWelcomeDashboard
+    }
 }
