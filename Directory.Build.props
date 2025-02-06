@@ -1,9 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project>
-	<ItemGroup>
-		<PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1" PrivateAssets="all" />
-		<PackageReference Include="Nerdbank.GitVersioning" Version="3.4.244" PrivateAssets="all" />
-	</ItemGroup>
+	<PropertyGroup>
+		<Title>Umbraco UI Examples</Title>
+		<Description>A collection of backoffice elements designed to help Umbraco developers extend the backoffice.</Description>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<PackageTags>umbraco ui examples</PackageTags>
+		<RepositoryUrl>https://github.com/umbraco/UI-Examples</RepositoryUrl>
+		<PublishRepositoryUrl>true</PublishRepositoryUrl>
+		<EmbedUntrackedSources>true</EmbedUntrackedSources>
+		<IncludeSymbols>true</IncludeSymbols>
+		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
+		<WarnOnPackingNonPackableProject>false</WarnOnPackingNonPackableProject>
+	</PropertyGroup>
 	<PropertyGroup>
 		<DisableImplicitNuGetFallbackFolder>true</DisableImplicitNuGetFallbackFolder>
 		<RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>

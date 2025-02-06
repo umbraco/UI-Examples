@@ -1,63 +1,25 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-
-  <PropertyGroup>
-	  <TargetFramework>net8.0</TargetFramework>
-  </PropertyGroup>
-
-	<!-- NuGet package info -->
 	<PropertyGroup>
-		<PackageId>Our.Umbraco.UiExamples.v13</PackageId>
-
-		<PackageIconUrl></PackageIconUrl>
-		<PackageLicenseExpression>MIT</PackageLicenseExpression>
-		<PackageProjectUrl>https://our.umbraco.com/packages/developer-tools/ui-examples/</PackageProjectUrl>
-		<PackageTags>Umbraco</PackageTags>
-
-		<RepositoryUrl>https://github.com/umbraco/UI-Examples</RepositoryUrl>
-		<PublishRepositoryUrl>true</PublishRepositoryUrl>
-
-		<Description>A collection of backoffice elements designed to help Umbraco developers extend the backoffice.</Description>
-		<PackageReleaseNotes>
-<![CDATA[
-1.0 - Initial version
-2.0 - Multi-targeted v8/v9 version
-]]>
-		</PackageReleaseNotes>
-
-		<EmbedUntrackedSources>true</EmbedUntrackedSources>
-		<IncludeSymbols>true</IncludeSymbols>
-		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
-
+		<TargetFramework>net8.0</TargetFramework>
 		<ContentTargetFolders>content</ContentTargetFolders>
+		<IsPackable>false</IsPackable>
+		<NoWarn>$(NoWarn),NU1902</NoWarn>
 	</PropertyGroup>
-
-	<Target Name="UmbPack" AfterTargets="Pack">
-		<Exec Command="umbpack pack package.xml -v $(Version) -o $(PackageOutputPath) -p Configuration=$(Configuration)" />
-	</Target>
 	
-	<!-- Package files -->
+	<ItemGroup>
+		<PackageReference Include="Umbraco.Cms.Web.Website" VersionOverride="[13.0.0, 14)" />
+		<PackageReference Include="Umbraco.Cms.Web.BackOffice" VersionOverride="[13.0.0, 14)" />
+	</ItemGroup>
+	
 	<ItemGroup>
 		<Content Include="content\App_Plugins\**\*.*">
 			<PackagePath>content\App_Plugins</PackagePath>
 			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
 			<CopyToPublishDirectory>Always</CopyToPublishDirectory>
 		</Content>
-		<!-- Target file to copy App_Plugins in net50 -->
 		<None Include="build\**\*.*">
 			<Pack>True</Pack>
 			<PackagePath>buildTransitive</PackagePath>
 		</None>
 	</ItemGroup>
-
-	<ItemGroup>
-		<PackageReference Include="Umbraco.Cms.Web.Website" Version="13.5.2" />
-		<PackageReference Include="Umbraco.Cms.Web.BackOffice" Version="13.5.2" />
-	</ItemGroup>
-
-	<Target Name="RemoveLuceneAnalyzer" BeforeTargets="CoreCompile">
-		<ItemGroup>
-			<Analyzer Remove="@(Analyzer)" Condition="%(FileName) == 'Lucene.Net.CodeAnalysis.CSharp'" />
-		</ItemGroup>
-	</Target>
-
 </Project>

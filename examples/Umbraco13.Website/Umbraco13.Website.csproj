@@ -4,7 +4,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Umbraco.Cms" Version="13.5.2" />
+        <PackageReference Include="Umbraco.Cms" VersionOverride="13.6.0" />
     </ItemGroup>
 	
 	<Import Project="..\..\src\Our.Umbraco.UiExamples.v13\build\Our.Umbraco.UiExamples.v13.targets" />
@@ -14,7 +14,7 @@
 	
 	<!-- Force Windows to use ICU. Otherwise Windows 10 2019H1+ will do it, but older Windows 10 and most if not all Windows Server OS's will run NLS -->
 	<ItemGroup Condition="'$(OS)' == 'Windows_NT'">
-		<PackageReference Include="Microsoft.ICU.ICU4C.Runtime" Version="68.2.0.9" />
+		<PackageReference Include="Microsoft.ICU.ICU4C.Runtime" VersionOverride="68.2.0.9" />
 		<RuntimeHostConfigurationOption Include="System.Globalization.AppLocalIcu" Value="68.2" />
 	</ItemGroup>
 
