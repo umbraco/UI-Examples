@@ -1,11 +1,53 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
 	<PropertyGroup>
 		<AssemblyName>Our.Umbraco.UiExamples</AssemblyName>
 		<TargetFramework>net9.0</TargetFramework>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
+		<StaticWebAssetBasePath>/App_Plugins/Example.UI</StaticWebAssetBasePath>
+		<NoWarn>$(NoWarn),NU1902</NoWarn>
 	</PropertyGroup>
+
+	<ItemGroup>
+		<FrameworkReference Include="Microsoft.AspNetCore.App" />
+		<SupportedPlatform Include="browser" />
+	</ItemGroup>
+	
 	<ItemGroup>
 		<PackageReference Include="Umbraco.Cms.Web.Common" VersionOverride="[15.0.0, 16)" />
 	</ItemGroup>
+
+	<!-- Client assets restore and build -->
+	<ItemGroup>
+		<ClientAssetsInputs Include="package.json;package-lock.json;tsconfig.json;vite.config.js;src\**;public\**" Exclude="$(DefaultItemExcludes)" />
+		<Content Update="$(ClientAssetsInputs)\**" Pack="false" />
+	</ItemGroup>
+
+	<Target Name="ClientAssetsRestore" Inputs="package-lock.json" Outputs="node_modules\.package-lock.json">
+		<Message Importance="high" Text="Restoring NPM packages..." />
+		<Exec Command="npm ci --no-fund --no-audit --prefer-offline" />
+	</Target>
+
+	<Target Name="ClientAssetsBuild" DependsOnTargets="ClientAssetsRestore" BeforeTargets="AssignTargetPaths" Inputs="@(ClientAssetsInputs)" Outputs="$(IntermediateOutputPath)clientassetsbuild.complete.txt">
+		<Message Importance="high" Text="Executing NPM build script..." />
+		<PropertyGroup>
+			<_ClientAssetsOutputFullPath>$([System.IO.Path]::GetFullPath('$(IntermediateOutputPath)clientassets'))/</_ClientAssetsOutputFullPath>
+		</PropertyGroup>
+		<MakeDir Directories="$(_ClientAssetsOutputFullPath)" />
+		<Exec Command="npm run build -- --outDir &quot;$(_ClientAssetsOutputFullPath)&quot;" />
+		<ItemGroup>
+			<_ClientAssetsBuildOutput Include="$(IntermediateOutputPath)clientassets\**"></_ClientAssetsBuildOutput>
+		</ItemGroup>
+		<WriteLinesToFile File="$(IntermediateOutputPath)clientassetsbuild.complete.txt" Lines="@(_ClientAssetsBuildOutput)" Overwrite="true" />
+	</Target>
+
+	<Target Name="DefineClientAssets" AfterTargets="ClientAssetsBuild" DependsOnTargets="ResolveStaticWebAssetsConfiguration">
+		<ItemGroup>
+			<FileWrites Include="@(_ClientAssetsBuildOutput)" />
+			<FileWrites Include="$(IntermediateOutputPath)clientassetsbuild.complete.txt" />
+		</ItemGroup>
+		<DefineStaticWebAssets CandidateAssets="@(_ClientAssetsBuildOutput)" SourceId="$(PackageId)" SourceType="Computed" ContentRoot="$(_ClientAssetsOutputFullPath)" BasePath="$(StaticWebAssetBasePath)">
+			<Output TaskParameter="Assets" ItemName="StaticWebAsset" />
+		</DefineStaticWebAssets>
+	</Target>
 </Project>
