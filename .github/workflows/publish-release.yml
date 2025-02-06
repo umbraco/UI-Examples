@@ -11,11 +11,11 @@ env:
 jobs:
   publish-release:
     name: Publish release
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
@@ -25,10 +25,10 @@ jobs:
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
 
       - name: Setup Nerdbank.GitVersioning
-        run: dotnet tool install --tool-path . nbgv
+        run: dotnet tool install nbgv --tool-path ./artifacts/
 
       - name: Tag release
-        run: ./nbgv tag -p src
+        run: ./artifacts/nbgv tag
 
       - name: Push git tags
         run: git push --tags
