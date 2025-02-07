@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Examples", "Examples", "{318FCC8D-7A91-4CAB-BA56-DBDC730BD532}"
+	ProjectSection(SolutionItems) = preProject
+		examples\README.md = examples\README.md
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Umbraco13.Website", "examples\Umbraco13.Website\Umbraco13.Website.csproj", "{7C6C2FFA-25A4-4CC4-9AA1-49B2DFB68DFC}"
 EndProject
