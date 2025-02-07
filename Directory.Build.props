@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project>
+	<PropertyGroup>
+		<Title>Umbraco UI Examples</Title>
+		<Description>A collection of backoffice elements designed to help Umbraco developers extend the backoffice.</Description>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<PackageTags>umbraco ui examples</PackageTags>
+		<RepositoryUrl>https://github.com/umbraco/UI-Examples</RepositoryUrl>
+		<PublishRepositoryUrl>true</PublishRepositoryUrl>
+		<EmbedUntrackedSources>true</EmbedUntrackedSources>
+		<IncludeSymbols>true</IncludeSymbols>
+		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
+		<WarnOnPackingNonPackableProject>false</WarnOnPackingNonPackableProject>
+	</PropertyGroup>
+	<PropertyGroup>
+		<DisableImplicitNuGetFallbackFolder>true</DisableImplicitNuGetFallbackFolder>
+		<RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
+		<GitVersionBaseDirectory>$(MSBuildThisFileDirectory)</GitVersionBaseDirectory>
+	</PropertyGroup>
+</Project>

@@ -3,54 +3,50 @@ name: Build
 on:
   push:
     branches:
-      - master
       - main
+      - develop
+      - support/*
+    tags:
+      - v*
   pull_request:
     branches:
-      - master
       - main
+      - develop
+      - support/*
   workflow_call:
 
 env:
   DOTNET_NOLOGO: true
   DOTNET_GENERATE_ASPNET_CERTIFICATE: false
   DOTNET_SKIP_FIRST_TIME_EXPERIENCE: true
-  PROJECT: ./src/Our.Umbraco.UiExamples/Our.Umbraco.UiExamples.csproj
-  OUTPUT: ./dist
+  NUGET_PACKAGES: ${{ github.workspace }}/.nuget/packages
 
 jobs:
   build:
     name: Build
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      - name: Cache NuGet packages
-        uses: actions/cache@v1
+      - uses: actions/setup-dotnet@v4
         with:
-          path: ~/.nuget/packages
-          key: ${{ runner.os }}-nuget-${{ hashFiles('**/packages.lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-nuget-
+          cache: true
+          cache-dependency-path: '**/package-lock.json'
 
       - name: Restore
-        run: dotnet restore ${{ env.PROJECT }} --locked-mode
+        run: dotnet restore --locked-mode
 
       - name: Build
-        run: dotnet build ${{ env.PROJECT }} -c Release -p:ContinuousIntegrationBuild=true --no-restore
-
-      - name: Setup UmbPack
-        run: dotnet tool install --tool-path $(Split-Path ${{ env.PROJECT }}) Umbraco.Tools.Packages
+        run: dotnet build --configuration Release --property:ContinuousIntegrationBuild=true --no-restore
 
       - name: Pack
-        run: dotnet pack ${{ env.PROJECT }} -c Release -o ${{ env.OUTPUT }} --no-restore --no-build
+        run: dotnet pack --configuration Release --no-restore --no-build --output ./artifacts/
         
       - name: Upload artifacts
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
-          name: packages
-          path: ${{ env.OUTPUT }}
+          path: ./artifacts/

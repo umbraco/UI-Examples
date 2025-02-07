@@ -3,28 +3,31 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Examples", "Examples", "{318FCC8D-7A91-4CAB-BA56-DBDC730BD532}"
+	ProjectSection(SolutionItems) = preProject
+		examples\README.md = examples\README.md
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Umbraco13.Website", "examples\Umbraco13.Website\Umbraco13.Website.csproj", "{7C6C2FFA-25A4-4CC4-9AA1-49B2DFB68DFC}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Umbraco15.Website", "examples\Umbraco15.Website\Umbraco15.Website.csproj", "{D9B26368-94C2-4A90-B84C-506411254F9D}"
+EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{6C66805F-8D60-40A9-AD57-856E38793846}"
 	ProjectSection(SolutionItems) = preProject
 		.gitattributes = .gitattributes
 		.gitignore = .gitignore
-		.github\workflows\build.yml = .github\workflows\build.yml
 		CONTRIBUTING.md = CONTRIBUTING.md
-		.github\workflows\prepare-release.yml = .github\workflows\prepare-release.yml
-		.github\workflows\publish-release.yml = .github\workflows\publish-release.yml
-		.github\workflows\publish.yml = .github\workflows\publish.yml
+		Directory.Build.props = Directory.Build.props
+		Directory.Packages.props = Directory.Packages.props
+		global.json = global.json
+		nuget.config = nuget.config
 		README.md = README.md
-		src\version.json = src\version.json
+		version.json = version.json
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Our.Umbraco.UiExamples", "src\Our.Umbraco.UiExamples\Our.Umbraco.UiExamples.csproj", "{027820BF-156B-476F-A7AF-2E6A747D292E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Our.Umbraco.UiExamples.v13", "src\Our.Umbraco.UiExamples.v13\Our.Umbraco.UiExamples.v13.csproj", "{027820BF-156B-476F-A7AF-2E6A747D292E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Umbraco8.Website", "samples\Umbraco8.Website\Umbraco8.Website.csproj", "{278F12BA-8B25-46AE-8BB0-A0B9AB50EEA4}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Umbraco9.Website", "samples\Umbraco9.Website\Umbraco9.Website.csproj", "{7C6C2FFA-25A4-4CC4-9AA1-49B2DFB68DFC}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Umbraco14.Website", "samples\Umbraco14.Website\Umbraco14.Website.csproj", "{D9B26368-94C2-4A90-B84C-506411254F9D}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Our.Umbraco.UiExamples.v14", "src\Our.Umbraco.UiExamples.v14\Our.Umbraco.UiExamples.v14.csproj", "{E99F9B42-9A45-4008-8BD7-002444460335}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Our.Umbraco.UiExamples.v15", "src\Our.Umbraco.UiExamples.v15\Our.Umbraco.UiExamples.v15.csproj", "{E99F9B42-9A45-4008-8BD7-002444460335}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -32,14 +35,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{027820BF-156B-476F-A7AF-2E6A747D292E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{027820BF-156B-476F-A7AF-2E6A747D292E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{027820BF-156B-476F-A7AF-2E6A747D292E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{027820BF-156B-476F-A7AF-2E6A747D292E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{278F12BA-8B25-46AE-8BB0-A0B9AB50EEA4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{278F12BA-8B25-46AE-8BB0-A0B9AB50EEA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{278F12BA-8B25-46AE-8BB0-A0B9AB50EEA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{278F12BA-8B25-46AE-8BB0-A0B9AB50EEA4}.Release|Any CPU.Build.0 = Release|Any CPU
 		{7C6C2FFA-25A4-4CC4-9AA1-49B2DFB68DFC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{7C6C2FFA-25A4-4CC4-9AA1-49B2DFB68DFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7C6C2FFA-25A4-4CC4-9AA1-49B2DFB68DFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -48,6 +43,10 @@ Global
 		{D9B26368-94C2-4A90-B84C-506411254F9D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D9B26368-94C2-4A90-B84C-506411254F9D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D9B26368-94C2-4A90-B84C-506411254F9D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{027820BF-156B-476F-A7AF-2E6A747D292E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{027820BF-156B-476F-A7AF-2E6A747D292E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{027820BF-156B-476F-A7AF-2E6A747D292E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{027820BF-156B-476F-A7AF-2E6A747D292E}.Release|Any CPU.Build.0 = Release|Any CPU
 		{E99F9B42-9A45-4008-8BD7-002444460335}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{E99F9B42-9A45-4008-8BD7-002444460335}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E99F9B42-9A45-4008-8BD7-002444460335}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -55,6 +54,10 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{7C6C2FFA-25A4-4CC4-9AA1-49B2DFB68DFC} = {318FCC8D-7A91-4CAB-BA56-DBDC730BD532}
+		{D9B26368-94C2-4A90-B84C-506411254F9D} = {318FCC8D-7A91-4CAB-BA56-DBDC730BD532}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {FE8099F5-7725-409F-A884-D50A8747C561}

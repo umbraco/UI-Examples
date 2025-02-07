@@ -3,10 +3,10 @@ If you want to add more UI examples to this package, please [raise an issue](./i
 
 ## Working locally
 Open the solution file `UI Examples.sln` in Visual Studio. You will see three projects:
-- `Our.Umbraco.UiExamples` is the main project containing the files that you will be working with
-- `Umbraco8.Website` is an Umbraco v8 test site
-- `Umbraco9.Website` is an Umbraco v9 test site
-- `Umbraco14.Website` is an Umbraco v14 test site
+- `Our.Umbraco.UiExamples.v13` is the main project containing the files that you will be working with for v13
+- `Our.Umbraco.UiExamples.v15` is the main project containing the files that you will be working with for v15
+- `Umbraco13.Website` is an Umbraco v13 LTS test site
+- `Umbraco15.Website` is an Umbraco v15 STS test site
 
 Steps to get the test sites working:
 - Build the solution
@@ -15,7 +15,7 @@ Steps to get the test sites working:
   - Username: uiexamples@example.com
   - Password: 1234567890
   
-For v14 you will also need to run `npm ci` within the `src\Our.Umbraco.UiExamples.v14` directory, and then `npm run dev` to start the development batch job. This will copy the files from the package into `samples\Umbraco14.Website` ready to see in the backoffice.
+For v115 you will also need to run `npm ci` within the `src\Our.Umbraco.UiExamples.v15` directory, and then `npm run dev` to start the development batch job. This will copy the files from the package into `examples\Umbraco15.Website` ready to see in the backoffice.
 
 ## Making changes
 The files you will be working on are in the `App_Plugins` folder in the main `Our.Umbraco.UiExamples` project. Changed files need to be copied into the test websites so you can confirm they work, which is automatically done when building the test websites (using a MSBuild target).

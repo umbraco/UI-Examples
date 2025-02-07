@@ -12,30 +12,16 @@ env:
 jobs:
   build:
     name: Build
-    uses: umbraco/UI-Examples/.github/workflows/build.yml@master
+    uses: umbraco/UI-Examples/.github/workflows/build.yml@${GITHUB_REF}
     
   publish:
     name: Publish
     needs: build
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
 
     steps:
       - name: Download artifacts
-        uses: actions/download-artifact@v2
-        with:
-          name: packages
-
-      - name: Get Umbraco package file name
-        id: get_package
-        run: echo "::set-output name=PACKAGE::$(Get-Item *.zip | Select-Object -First 1 -ExpandProperty Name)"
-      
-      - name: Setup UmbPack
-        if: steps.get_package.outputs.PACKAGE
-        run: dotnet tool install --tool-path . Umbraco.Tools.Packages
-
-      - name: Push to Our.Umbraco
-        if: steps.get_package.outputs.PACKAGE
-        run: ./umbpack push ${{ steps.get_package.outputs.PACKAGE }} -k ${{ secrets.OURUMBRACO_API_KEY }} -a *
+        uses: actions/download-artifact@v4
 
       - name: Push to NuGet
         run: dotnet nuget push *.nupkg --source https://api.nuget.org/v3/index.json --api-key ${{ secrets.NUGET_API_KEY }} --skip-duplicate
